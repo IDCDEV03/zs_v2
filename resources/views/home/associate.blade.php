@@ -43,7 +43,9 @@
                                                <div class="container-fluid">
                                                   <div class="row justify-content-md-center"> 
                                                      <div class="col-md-auto">
+                                                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6h1X2QLSyfYBnLSI2FJNWvJK7HqCmfjjQ9wtNEqt8pFK4_g/viewform">
                                                         <img src="{{asset('theme/img/depa1.png')}}" class="rounded mx-auto d-block img-fluid" width="400px">
+                                                    </a>
                                                      </div>
                                                     
                                                   </div>
