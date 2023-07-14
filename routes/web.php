@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\API\TambonController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,5 +27,7 @@ Route::get('/information2', $controller_path . '\UserController@information2')->
 
 Route::get('/information3', $controller_path . '\UserController@information3')->name('home.information3');
 
-
 Route::get('/information4', $controller_path . '\UserController@information4')->name('home.information4');
+
+Route::post('/save_information1', $controller_path . '\UserController@information1_save')->name('home.saveinformation1');
+

@@ -210,12 +210,10 @@
                                        </div>
                                     </div>
                                 </div>
+                            
 
-                               
-
-                                  
                                   <div class="form-group mb-25">
-                                    <button type="submit" class="btn btn-lg btn-primary btn-submit">บันทึกและไปต่อ</button>
+                                    <button type="submit" class="btn btn-primary">บันทึกและไปต่อ</button>
                                  </div>
                               
                             </form>

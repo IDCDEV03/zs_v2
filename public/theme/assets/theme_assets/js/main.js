@@ -36,8 +36,17 @@
     duration: "medium",
     changeMonth: true,
     changeYear: true,
-    yearRange: "2010:2059",
+    yearRange: "1950:2012",
   });
+
+  $("#datepicker_th").datepicker({
+    dateFormat: "dd/mm/yy",
+    duration: "medium",
+    changeMonth: true,
+    changeYear: true,
+    yearRange: "1950:2012",
+  });
+
   $("#datepicker9").datepicker({
     dateFormat: 'yy-mm-dd',
     timeFormat: ' hh:ii:ss',
