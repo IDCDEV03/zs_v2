@@ -43,7 +43,7 @@
                                                <div class="container-fluid">
                                                   <div class="row justify-content-md-center"> 
                                                      <div class="col-md-auto">
-                                                        <img src="{{asset('theme/img/CAT.png')}}" class="rounded mx-auto d-block img-fluid" width="400px">
+                                                        <img src="{{asset('theme/img/depa1.png')}}" class="rounded mx-auto d-block img-fluid" width="400px">
                                                      </div>
                                                     
                                                   </div>
