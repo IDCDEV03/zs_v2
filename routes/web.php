@@ -29,5 +29,7 @@ Route::get('/information3', $controller_path . '\UserController@information3')->
 
 Route::get('/information4', $controller_path . '\UserController@information4')->name('home.information4');
 
+Route::get('/products', $controller_path . '\UserController@products')->name('home.products');
+
 Route::post('/save_information1', $controller_path . '\UserController@information1_save')->name('home.saveinformation1');
 

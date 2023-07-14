@@ -67,5 +67,10 @@ class UserController extends Controller
     {
         return view('home.information_part4');
     }
+
+    public function products()
+    {
+        return view('home.products');
+    }
 }
 
