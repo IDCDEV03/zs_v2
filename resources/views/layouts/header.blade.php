@@ -38,7 +38,7 @@
 
 <!-- endinject -->
 
-<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('theme/img/favicon.png')}}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('theme/img/fav.png')}}">
 
 <!-- Fonts -->
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
