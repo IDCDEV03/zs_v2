@@ -72,5 +72,16 @@ class UserController extends Controller
     {
         return view('home.products');
     }
+
+    public function attitudetest()
+    {
+        return view('home.attitudetest');
+    }
+
+    public function associate()
+    {
+        return view('home.associate');
+    }
+
 }
 
