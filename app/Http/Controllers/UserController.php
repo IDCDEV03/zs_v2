@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\information_p1;
+use App\Models\information_p2;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -17,16 +18,52 @@ class UserController extends Controller
         return view('home.index');
     }
 
+    public function dashboard()
+    {
+        return view('home.dashboard');
+    }
+
     public function information()
     {
         return view('home.information');
     }
 
+    public function information2($id)
+    {
+        return view('home.information_part2');
+    }
+
+    public function information3($id)
+    {
+        return view('home.information_part3');
+    }
+    public function information4($id)
+    {
+        return view('home.information_part4');
+    }
+
+    public function products()
+    {
+        return view('home.products');
+    }
+
+    public function attitudetest()
+    {
+        return view('home.attitudetest');
+    }
+
+    public function associate()
+    {
+        return view('home.associate');
+    }
+/** insert function */
+
     public function information1_save(Request $request)
     {
-        $member_id = hexdec(uniqid());
-        $date_hdb = $request->member_hbd;
-        $format_date = Carbon::parse($request->member_hbd)->format('Y-m-d');
+     
+        $member_id = Str::random(10);
+        $date_member_hbd = $request->member_hbd;        
+        $format_date = Carbon::createFromFormat('d/m/Y', $date_member_hbd)->format('Y-m-d');
         information_p1::insert([
             'member_id' => $member_id,
             'member_prefix' => $request->member_prefix,
@@ -53,34 +90,60 @@ class UserController extends Controller
             'std_family_member' => $request->std_family_member,
             'created_at' => Carbon::now()
           ]);
-          return redirect()->route('home.information2');
-    }
-    public function information2()
-    {
-        return view('home.information_part2');
-    }
-    public function information3()
-    {
-        return view('home.information_part3');
-    }
-    public function information4()
-    {
-        return view('home.information_part4');
+          return redirect()->route('home.information2', ['id' => $member_id]);
     }
 
-    public function products()
+    public function information2_save(Request $request, $id)
     {
-        return view('home.products');
+        $option1 = $request->input('ins1', []);
+        $option1String = implode(', ', $option1);
+
+        $option2 = $request->input('ins2', []);
+        $option2String = implode(', ', $option2);
+
+        $option3 = $request->input('ins3', []);
+        $option3String = implode(', ', $option3);
+
+        information_p2::insert([
+            'member_id' => $id,
+            'member_multimedia' => $option1String,
+            'member_activity' => $option2String,
+            'member_travel' => $option3String,
+            'member_license_chk' => $request->license_chk,
+            'created_at' => Carbon::now()
+        ]);
+        return redirect()->route('home.information3', ['id' => $id]);
     }
 
-    public function attitudetest()
+    public function information4_save (Request $request, $id)
     {
-        return view('home.attitudetest');
-    }
+        $request->validate(
+            [           
+              'input1' => 'required',
+              'input2' => 'required',
+              'input3' => 'required'      
+            ],
+            [
+              'input1.required' => "กรุณาเลือกคำตอบ",
+              'input2.required' => "กรุณาเลือกคำตอบ",
+              'input3.required' => "กรุณาเลือกคำตอบ"
+            ]
+          );
 
-    public function associate()
-    {
-        return view('home.associate');
+          $option = $request->input('q4', []);
+          $optionString = implode(', ', $option);
+  
+          DB::table('information_p3s')->insert([
+            'member_id'=>$id,
+            'question1'=>$request->input1,
+            'question2'=>$request->input2,
+            'question3'=>$request->input3,
+            'know_us'=>$optionString,
+            'created_at' => Carbon::now()
+          ]);
+
+          return redirect()->route('home.dashboard');
+
     }
 
 }

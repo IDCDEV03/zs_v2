@@ -2,8 +2,8 @@
     <nav class="navbar navbar-light">
        <div class="navbar-left">
           <div class="logo-area">
-             <a class="navbar-brand" href="index.html">
-                <img src="{{ asset('theme/img/1642761366.jpg')}}" alt="logo" height="50px" width="100px">
+             <a class="navbar-brand" href="#">
+                <img src="{{ asset('theme/img/idlogo1.png')}}" alt="logo" width="100px">
              </a>
              <a href="#" class="sidebar-toggle">
                 <img class="svg" src="{{ asset('theme/img/svg/align-center-alt.svg')}}" alt="img"></a>

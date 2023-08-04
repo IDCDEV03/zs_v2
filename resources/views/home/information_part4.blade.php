@@ -40,17 +40,21 @@
                        <h6>Life Style</h6>
                     </div>
                     <div class="card-body pb-md-30">
-                       <form action="#">
+                      <form action="{{ route('home.saveinformation4',['id' => request()->id]) }}" method="POST">
+                        @csrf
                           <div class="form-group">
                              <label for="a11" class="il-gray align-center mb-10"><i class="fa fa-angle-double-right fa-sm" aria-hidden="true"></i> &nbsp;ท่านคิดว่าประกันเป็นสิ่งจำเป็นต่อชีวิตหรือไม่</label>
                              <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="input1" id="input1" value="Y">
+                              <input class="form-check-input" type="radio" name="input1" id="input1" value="จำเป็น">
                               <label class="form-check-label" for="input1">จำเป็น</label>
                             </div>
                             <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="input1" id="input2" value="N">
+                              <input class="form-check-input" type="radio" name="input1" id="input2" value="ไม่จำเป็น">
                               <label class="form-check-label" for="input2">ไม่จำเป็น</label>
                             </div>
+                            @error('input1')
+<span class="text-danger">{{$message}}</span>
+@enderror
                           </div>
 
                           <div class="form-group">
@@ -67,6 +71,9 @@
                            <input class="form-check-input" type="radio" name="input2" id="input5" value="3">
                            <label class="form-check-label" for="input5">ยังไม่แน่ใจ</label>
                          </div>
+                      @error('input2')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
                         </div>
 
                         <div class="form-group">
@@ -86,10 +93,76 @@
                            <input class="form-check-input" type="radio" name="input3" id="input8" value="3">
                            <label class="form-check-label" for="input8">แบบเพื่อการลงทุน</label>
                          </div>
+                        @error('input3')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
                         </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="a8" class="il-gray fw-500 align-center mb-10"> <i class="fa fa-angle-double-right fa-sm" aria-hidden="true"></i> &nbsp;ท่านรู้จักเราจากแหล่งใด</label>
+                             
+                              <div class="form-check">
+                               <input class="form-check-input" type="checkbox" name="q4[]" value="Recommend" id="qt1">
+                               <label class="form-check-label" for="qt1">
+                               มีคนแนะนำ
+                               </label>
+                             </div>
+
+                             <div class="form-check">
+                               <input class="form-check-input" type="checkbox" name="q4[]" value="Google" id="qt2">
+                               <label class="form-check-label" for="qt2">
+                                   Google
+                               </label>
+                             </div>
+
+                             <div class="form-check">
+                               <input class="form-check-input" type="checkbox" name="q4[]" value="Youtube" id="qt3">
+                               <label class="form-check-label" for="qt3">
+                                   Youtube
+                               </label>
+                             </div>
+
+                             <div class="form-check">
+                              <input class="form-check-input" type="checkbox" name="q4[]" value="Line" id="qt4">
+                              <label class="form-check-label" for="qt4">
+                                  Line
+                              </label>
+                            </div>
+
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" name="q4[]" value="Signboard" id="qt5">
+                              <label class="form-check-label" for="qt5">
+                                  ป้ายโฆษณา
+                              </label>
+                            </div>
+
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" name="q4[]" value="Leaflet" id="qt6">
+                              <label class="form-check-label" for="qt6">
+                                  แผ่นพับประชาสัมพันธ์
+                              </label>
+                            </div>
+
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" name="q4[]" value="SMS" id="qt7">
+                              <label class="form-check-label" for="qt7">
+                                  SMS ประชาสัมพันธ์
+                              </label>
+                            </div>
+
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" name="q4[]" value="Event" id="qt8">
+                              <label class="form-check-label" for="qt8">
+                                  งานอีเว้นท์
+                              </label>
+                            </div>
+                                                        
+                           </div>                       
+                      </div>
                        
                         <div class="form-group mb-0">
-                           <button type="submit" class="btn btn-secondary">บันทึก</button>
+                           <button type="submit" class="btn btn-secondary">บันทึกข้อมูล</button>
                         </div>
 
                        </form>
