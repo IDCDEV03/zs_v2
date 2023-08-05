@@ -56,6 +56,12 @@ class UserController extends Controller
     {
         return view('home.associate');
     }
+
+    public function complete_page()
+    {
+        return view('home.complete');
+    }
+
 /** insert function */
 
     public function information1_save(Request $request)
@@ -142,7 +148,7 @@ class UserController extends Controller
             'created_at' => Carbon::now()
           ]);
 
-          return redirect()->route('home.dashboard');
+          return redirect()->route('home.complete');
 
     }
 
