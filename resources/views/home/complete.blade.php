@@ -43,7 +43,7 @@
                                                   <div class="row justify-content-md-center"> 
                                                      <div class="col-md-auto">
                                                         <a href="https://www.facebook.com/iddrivescontact">
-                                                        <img src="{{asset('theme/img/thank.png')}}" class="rounded mx-auto d-block img-fluid" width="600px">
+                                                        <img src="{{asset('theme/img/thank2.png')}}" class="rounded mx-auto d-block img-fluid" width="600px">
                                                     </a>
                                                      </div>
                                                     
