@@ -34,6 +34,8 @@ Route::get('/information4/{id}', $controller_path . '\UserController@information
 
 Route::get('/dashboard', $controller_path . '\UserController@dashboard')->name('home.dashboard');
 
+Route::get('/complete', $controller_path . '\UserController@complete_page')->name('home.complete');
+
 Route::get('/products', $controller_path . '\UserController@products')->name('home.products');
 
 Route::get('/attitudetest', $controller_path . '\UserController@attitudetest')->name('home.attitudetest');
