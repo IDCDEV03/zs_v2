@@ -37,7 +37,7 @@
                 <div class="card card-horizontal card-default card-md mb-3 ">
                    @foreach ($member_data as $item)  
                     <div class="card-body py-md-30">
-                        <h3 class="card-title py-md-10">{{$item->member_prefix}} {{$item->member_name}} {{$item->member_lastname}}</h3>
+                        <h3 class="card-title py-md-10 text-secondary">{{$item->member_prefix}} {{$item->member_name}} {{$item->member_lastname}}</h3>
                         <table class="table">
                             <thead>
                               <tr>
@@ -48,13 +48,19 @@
                             <tbody>
 
                               <tr>
-                                <th scope="row">เบอร์โทรศัพท์</th>
+                                <th width="30%">เบอร์โทรศัพท์</th>
                                 <td> {{$item->member_phone}} </td>
                               </tr>
-
+@php
+    $dateOfbirth = $item->member_hbd;
+    $today = date("Y-m-d");
+    $diff = date_diff(date_create($dateOfbirth), date_create($today));
+@endphp
                               <tr>
                                 <th>อายุ</th>
-                                <td></td>
+                                <td>@php
+                                    echo $diff->format('%y').' ปี';
+                                @endphp</td>
                               </tr>
 
                               <tr>
@@ -89,7 +95,13 @@
 
                               <tr>
                                 <th>มีใบขับขี่หรือไม่</th>
-                                <td></td>
+                                <td>
+                                @if ($item->member_license_chk == 'N')
+                                   <span class="text-danger">ไม่มี</span>
+                                @else
+                                    <span class="text-success">มี</span>
+                                @endif
+                                </td>
                               </tr>
                               
                             </tbody>
@@ -100,20 +112,36 @@
                           <table class="table">                       
                             <tbody>
                                 <tr>
-                                    <th>ประกันเป็นสิ่งจำเป็นต่อชีวิตหรือไม่</th>
-                                    <td></td>
+                                    <th width="30%">ประกันเป็นสิ่งจำเป็นต่อชีวิตหรือไม่</th>
+                                    <td>{{$item->question1}}</td>
                                   </tr>
                                   <tr>
                                     <th>การวางแผนชีวิต</th>
-                                    <td></td>
+                                    <td>
+                                   @if ($item->question2 == '1')
+                                   ต้องการมีหลักประกันสำหรับตนเองและครอบครัว
+                                   @elseif ($item->question2 == '2')
+                                   ต้องการวางแผนการเกษียณอายุ
+                                   @elseif($item->question2 == '3')
+                                   ยังไม่แน่ใจ
+                                   @endif
+                                    </td>
                                   </tr>
                                   <tr>
                                     <th>ความคุ้มครองที่เหมาะสมกับท่าน</th>
-                                    <td></td>
+                                    <td>
+                                      @if ($item->question3 == '1')
+                                      แบบสะสมทรัพย์
+                                      @elseif ($item->question3 == '2')
+                                      แบบมีปันผลตามระยะเวลา
+                                      @elseif($item->question3 == '3')
+                                      แบบเพื่อการลงทุน
+                                      @endif
+                                    </td>
                                   </tr>
                                   <tr>
                                     <th>ท่านรู้จักเราจากแหล่งใด</th>
-                                    <td></td>
+                                    <td> {{$item->know_us}} </td>
                                   </tr>
                               
                             </tbody>

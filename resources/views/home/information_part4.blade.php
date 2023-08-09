@@ -103,7 +103,7 @@
                               <label for="a8" class="il-gray fw-500 align-center mb-10"> <i class="fa fa-angle-double-right fa-sm" aria-hidden="true"></i> &nbsp;ท่านรู้จักเราจากแหล่งใด</label>
                              
                               <div class="form-check">
-                               <input class="form-check-input" type="checkbox" name="q4[]" value="Recommend" id="qt1">
+                               <input class="form-check-input" type="checkbox" name="q4[]" value="Recommended" id="qt1">
                                <label class="form-check-label" for="qt1">
                                มีคนแนะนำ
                                </label>

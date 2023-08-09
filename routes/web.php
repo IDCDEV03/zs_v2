@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\API\TambonController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +21,11 @@ $controller_path = 'App\Http\Controllers';
 Route::get('/', function () {
     return view('welcome');
 });
+
+/** LOGIN */
+
+Route::get('/login', $controller_path . '\LoginController@login')->name('login');
+Route::get('/consent', $controller_path . '\RegisterController@consent')->name('consent');
 
 /* Line link */ 
 
@@ -50,7 +57,10 @@ Route::post('/save_information2/{id}', $controller_path . '\UserController@infor
 Route::post('/save_information4/{id}', $controller_path . '\UserController@information4_save')->name('home.saveinformation4');
 
 /** Admin Route */
+Route::group(['middleware' => 'admin'], function () {
 
 Route::get('/back', [AdminController::class, 'admin_index'])->name('admin.dashboard');
 Route::get('/users', [AdminController::class, 'admin_listuser'])->name('admin.listuser');
 Route::get('/member/{id}', [AdminController::class, 'member_detail'])->name('admin.memberdetail');
+
+});

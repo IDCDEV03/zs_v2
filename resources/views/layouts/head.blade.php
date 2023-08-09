@@ -4,7 +4,7 @@
           <div class="logo-area">
              <a class="navbar-brand" href="#">
                <img src="{{ asset('theme/img/logo03.png')}}" alt="logo" height="50px"
-               width="50px">
+               width="60px">
              </a>
              <a href="#" class="sidebar-toggle">
                 <img class="svg" src="{{ asset('theme/img/svg/align-center-alt.svg')}}" alt="img"></a>

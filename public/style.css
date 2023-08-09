@@ -26798,10 +26798,9 @@ body:after {
 
 /* login page */
 .admin {
-  background-image: url("img/admin-bg-light.png");
   background-repeat: no-repeat;
   background-position: top;
-  min-height: 630px;
+  min-height: 768px;
 }
 .admin .edit-profile {
   margin-top: 153px;
@@ -26855,10 +26854,7 @@ body:after {
 .admin .edit-profile__logos .light {
   display: none;
 }
-.admin .edit-profile__logos img {
-  width: 195px;
-  max-width: 100%;
-}
+
 
 .admin-element {
   background-color: var(--color-white);

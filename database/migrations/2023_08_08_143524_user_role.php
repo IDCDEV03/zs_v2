@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('information_p1s', function (Blueprint $table) {
-            $table->string('member_prefix')->after('member_id');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('user_role')->after('updated_at');
         });
     }
 
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('information_p1s', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }
