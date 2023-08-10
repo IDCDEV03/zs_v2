@@ -162,7 +162,7 @@
 </p>
 
 <p>
-    <b> ราละเอียดติดต่อ</b><br>
+    <b> รายละเอียดติดต่อ</b><br>
     หากคุณต้องการสอบถามข้อมูลเกี่ยวกับนโยบายความเป็นส่วนตัวฉบับนี้ รวมถึงการขอใช้สิทธิต่างๆคุณสามารถติดต่อเราหรือเจ้าหน้าที่คุ้มครองข้อมูลส่วนบุคคลของเราได้ ดังนี้
 </p>
 <p><b>ผู้ควบคุมข้อมูลส่วนบุคคล</b></p>
@@ -170,7 +170,7 @@
     <b>บริษัท ไอดี ไดรฟ์ จำกัด</b> <br>
     200/222 หมู่ 2 ถนนชัยพฤกษ์ ตำบลในเมือง อำเภอเมืองขอนแก่น จังหวัดขอนแก่น 40000
 </p>
-<p>อีเมล : dpo@iddrives.co.th</p>
+<p>อีเมล : <a href="mailto:dpo@iddrives.co.th">dpo@iddrives.co.th</a></p>
 <p>เว็บไซต์ : <a href="https://www.iddrives.co.th/web/">www.iddrives.co.th</a></p>
 <p>หมายเลขโทรศัพท์ : 043-228899</p>
 
@@ -186,12 +186,11 @@
        <div class="checkbox-theme-default custom-checkbox ">
           <input class="checkbox" name="consent_chk" type="checkbox" value="1" id="check-1">
           <label for="check-1">
-             <span class="checkbox-text color-gray">
+             <span class="checkbox-text color-gray text-big">
                 ข้าพเจ้าเข้าใจและตกลงตาม เงื่อนไขการให้บริการและนโยบายความเป็นส่วนตัว
              </span>
           </label>         
-       </div>
-      
+       </div>      
     </div>
  </div>
  <button class="btn btn-primary px-30" type="submit">สมัครสมาชิก</button>

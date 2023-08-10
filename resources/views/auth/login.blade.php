@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ID DRIVES</title>
+    <title>ID Drives Company</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('theme/assets/vendor_assets/css/plugin.min.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/assets/vendor_assets/css/style.min.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/assets/vendor_assets/css/variables.css') }}">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.0/css/line.css">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('theme/assets/vendor_assets/img/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('theme/img/logo_fav.png') }}">
 </head>
 <body>
     <main class="main-content">
@@ -20,7 +20,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-sm-8">
                         <div class="edit-profile">
                             <div class="edit-profile__logos">
-                                <img  src="{{ asset('theme/img/logo_fav.png') }}"  alt="">
+                                <img src="{{ asset('theme/img/logo_fav.png') }}" alt="">
                             </div>
                             <div class="card border-0">
                                 <div class="card-header">
@@ -29,13 +29,12 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <form action="#" method="POST">
+                           <form action="{{ route('login.perform') }}" method="POST">
                                         @csrf
                                         <div class="edit-profile__body">
                                             <div class="form-group mb-20">
                                                 <label for="email">Username </label>
-                                                <input type="text" class="form-control" id="username" name="username" placeholder="ชื่อผู้ใช้">
-                                              
+                                                <input type="text" class="form-control" id="username" name="username" placeholder="ชื่อผู้ใช้">        
                                             </div>
                                             <div class="form-group mb-15">
                                                 <label for="password-field">password</label>
@@ -54,7 +53,7 @@
                                                         <span class="checkbox-text">Keep me logged in</span>
                                                     </label>
                                                 </div>
-                                                <a href="{{route('consent')}}">สมัครสมาชิก</a>
+                                        <a href="{{route('consent')}}">สมัครสมาชิก</a>
                                             </div>
                                             <div class="admin__button-group button-group d-flex pt-1 justify-content-md-start justify-content-center">
                                                 <button class="btn btn-primary btn-default w-100 btn-squared text-capitalize lh-normal px-30 signIn-createBtn ">

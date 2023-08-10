@@ -24,7 +24,8 @@ Route::get('/', function () {
 
 /** LOGIN */
 
-Route::get('/login', $controller_path . '\LoginController@login')->name('login');
+Route::get('/login', $controller_path . '\LoginController@login_show')->name('login.show');
+Route::post('/login', $controller_path . '\LoginController@login')->name('login.perform');
 Route::get('/consent', $controller_path . '\RegisterController@consent')->name('consent');
 Route::POST('/consent_save', $controller_path . '\RegisterController@consent_save')->name('home.consent_save');
 
