@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('consent_chks', function (Blueprint $table) {
+        Schema::create('user_registers', function (Blueprint $table) {
             $table->id();
             $table->string('member_id');
-            $table->string('consent_chk');
+            $table->string('username');
+            $table->string('password');
+            $table->string('consent_token');
+            $table->string('user_role');
+            $table->boolean('isAdmin')->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('consent_chks');
+        Schema::dropIfExists('user_registers');
     }
 };

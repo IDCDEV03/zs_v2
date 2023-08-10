@@ -24,7 +24,7 @@ class UserController extends Controller
         return view('home.dashboard');
     }
 
-    public function information()
+    public function information($id)
     {
         return view('home.information');
     }
@@ -65,14 +65,13 @@ class UserController extends Controller
 
 /** insert function */
 
-    public function information1_save(Request $request)
+    public function information1_save(Request $request,$id)
     {
-     
-        $member_id = Str::random(10);
+            
         $date_member_hbd = $request->member_hbd;        
         $format_date = Carbon::createFromFormat('d/m/Y', $date_member_hbd)->format('Y-m-d');
         information_p1::insert([
-            'member_id' => $member_id,
+            'member_id' => $id,
             'member_prefix' => $request->member_prefix,
             'member_name' => $request->member_name,
             'member_lastname' => $request->member_lastname,

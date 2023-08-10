@@ -26,12 +26,14 @@ Route::get('/', function () {
 
 Route::get('/login', $controller_path . '\LoginController@login')->name('login');
 Route::get('/consent', $controller_path . '\RegisterController@consent')->name('consent');
+Route::POST('/consent_save', $controller_path . '\RegisterController@consent_save')->name('home.consent_save');
+
 
 /* Line link */ 
 
 Route::get('/home', $controller_path . '\UserController@home_index')->name('home.index');
 
-Route::get('/information', $controller_path . '\UserController@information')->name('home.information');
+Route::get('/information/{id}', $controller_path . '\UserController@information')->name('home.information');
 
 Route::get('/information2/{id}', $controller_path . '\UserController@information2')->name('home.information2');
 
@@ -57,7 +59,7 @@ Route::post('/save_information2/{id}', $controller_path . '\UserController@infor
 Route::post('/save_information4/{id}', $controller_path . '\UserController@information4_save')->name('home.saveinformation4');
 
 /** Admin Route */
-Route::group(['middleware' => 'admin'], function () {
+Route::group(['middleware' => 'isAdmin'], function () {
 
 Route::get('/back', [AdminController::class, 'admin_index'])->name('admin.dashboard');
 Route::get('/users', [AdminController::class, 'admin_listuser'])->name('admin.listuser');

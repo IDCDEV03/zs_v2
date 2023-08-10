@@ -164,15 +164,17 @@
 <p style="text-align:right;">ปรับปรุงล่าสุดเมื่อ วันที่ 9 มิถุนายน 2565</p>
 @php
     $pdpa_token =  substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 2) . substr(str_shuffle("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 8);
+    $member_id = substr(str_shuffle("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 8);
 @endphp
-<form action="">
+<form action="{{ route('home.consent_save', ['id' => $member_id]) }}" method="POST">
     @csrf
     <input type="hidden" name="consent_token" value="@php echo 
     $pdpa_token @endphp">
+
 <div class="form-group mb-25 mt-1">
     <div class="form-check ps-0">
        <div class="checkbox-theme-default custom-checkbox ">
-          <input class="checkbox" type="checkbox" id="check-1">
+          <input class="checkbox" name="consent_chk" type="checkbox" value="1" id="check-1">
           <label for="check-1">
              <span class="checkbox-text color-gray">
                 ข้าพเจ้าเข้าใจและตกลงตาม เงื่อนไขการให้บริการและนโยบายความเป็นส่วนตัว
