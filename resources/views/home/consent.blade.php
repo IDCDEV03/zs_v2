@@ -37,6 +37,19 @@
                 <div class="card card-horizontal card-default card-md mb-3 ">
                    
                     <div class="card-body py-md-30">
+
+                        @error('consent_chk')
+                        <div class="alert-big alert alert-danger  alert-dismissible fade show " role="alert">
+                            <div class="alert-content">
+                               <h6 class='alert-heading'>เกิดข้อผิดพลาด</h6>
+                               <p>{{$message}}</p>
+                               <button type="button" class="btn-close text-capitalize" data-bs-dismiss="alert" aria-label="Close">
+                                  <img src="{{ asset('theme/img/svg/x.svg')}}" alt="x" class="svg" aria-hidden="true">
+                               </button>
+                            </div>
+                         </div>
+                         @enderror
+
                             <h2 class="card-title mb-3">นโยบายความเป็นส่วนตัวสำหรับผู้ใช้งาน</h2>
 <p class="card-text">
     บริษัท ไอดี ไดรฟ์ จำกัด ให้ความสำคัญกับการคุ้มครองข้อมูลส่วนบุคคล โดยนโยบายความเป็นส่วนตัวฉบับนี้ได้อธิบายแนวปฏิบัติเกี่ยวกับการเก็บรวบรวมใช้ หรือเปิดเผยข้อมูลส่วนบุคคล รวมถึงสิทธิต่างๆของเจ้าของข้อมูลบุคคล ตามกฎหมายคุ้มครองข้อมูลส่วนบุคคล
@@ -176,8 +189,9 @@
              <span class="checkbox-text color-gray">
                 ข้าพเจ้าเข้าใจและตกลงตาม เงื่อนไขการให้บริการและนโยบายความเป็นส่วนตัว
              </span>
-          </label>
+          </label>         
        </div>
+      
     </div>
  </div>
  <button class="btn btn-primary px-30" type="submit">สมัครสมาชิก</button>

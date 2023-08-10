@@ -24,6 +24,16 @@ class RegisterController extends Controller
 
     public function consent_save(Request $request)
     {
+
+        $request->validate(
+            [
+              'consent_chk' => 'required'      
+            ],
+            [
+              'consent_chk.required' => "กรุณาคลิกยอมรับเงื่อนไขการให้บริการ",
+            ]
+          );
+
         DB::table('consent_chks')->insert([
             'consent_token' => $request->_token,
             'member_id' => $request->id,
