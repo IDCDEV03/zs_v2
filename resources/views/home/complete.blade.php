@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ID Drives</title>
+    <title>ID Drives Company</title>
 
-    @include('layouts.header')
+    @include('guest.header')
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
@@ -28,7 +28,7 @@
     <div class="mobile-author-actions"></div>
 
     <main class="main-content">
-        @include('layouts.head')
+        @include('guest.head')
 
         <div class="contents">
 

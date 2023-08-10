@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ID Drives V2.0</title>
 
-    @include('layouts.header')
+    @include('guest.header')
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
@@ -28,7 +28,7 @@
     <div class="mobile-author-actions"></div>
 
     <main class="main-content">
-        @include('layouts.head')
+        @include('guest.head')
 
         <div class="contents">
 
@@ -311,7 +311,7 @@
         </div>
 
           <!-----------------------------footer------------------------>
-          @include('layouts.footer')   
+          @include('guest.footer')   
 
     @include('layouts.script')
     <script>
