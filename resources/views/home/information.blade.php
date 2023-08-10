@@ -40,7 +40,7 @@
                     </div>
                     <div class="card-body py-md-30">
                         <div class="horizontal-form">
-                            <form action="{{ route('home.saveinformation1') }}" method="POST">
+                            <form action="{{ route('home.saveinformation1', ['id' => request()->id]) }}" method="POST">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-4">

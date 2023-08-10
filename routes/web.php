@@ -52,7 +52,7 @@ Route::get('/attitudetest', $controller_path . '\UserController@attitudetest')->
 Route::get('/associate', $controller_path . '\UserController@associate')->name('home.associate');
 
 /* insert data */
-Route::post('/save_information1', $controller_path . '\UserController@information1_save')->name('home.saveinformation1');
+Route::post('/save_information1/{id}', $controller_path . '\UserController@information1_save')->name('home.saveinformation1');
 
 Route::post('/save_information2/{id}', $controller_path . '\UserController@information2_save')->name('home.saveinformation2');
 

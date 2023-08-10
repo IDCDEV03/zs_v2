@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -65,13 +66,13 @@ class UserController extends Controller
 
 /** insert function */
 
-    public function information1_save(Request $request,$id)
-    {
-            
+    public function information1_save(Request $request)
+    {            
+        $user_id = Session::get('member_id');
         $date_member_hbd = $request->member_hbd;        
         $format_date = Carbon::createFromFormat('d/m/Y', $date_member_hbd)->format('Y-m-d');
         information_p1::insert([
-            'member_id' => $id,
+            'member_id' => $user_id,
             'member_prefix' => $request->member_prefix,
             'member_name' => $request->member_name,
             'member_lastname' => $request->member_lastname,
@@ -96,7 +97,7 @@ class UserController extends Controller
             'std_family_member' => $request->std_family_member,
             'created_at' => Carbon::now()
           ]);
-          return redirect()->route('home.information2', ['id' => $member_id]);
+          return redirect()->route('home.information2', ['id' => $request->id]);
     }
 
     public function information2_save(Request $request, $id)

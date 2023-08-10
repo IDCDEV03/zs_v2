@@ -163,13 +163,10 @@
 
 <p style="text-align:right;">ปรับปรุงล่าสุดเมื่อ วันที่ 9 มิถุนายน 2565</p>
 @php
-    $pdpa_token =  substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 2) . substr(str_shuffle("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 8);
-    $member_id = substr(str_shuffle("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 8);
+    $user_id = Session::get('member_id');
 @endphp
-<form action="{{ route('home.consent_save', ['id' => $member_id]) }}" method="POST">
+<form action="{{ route('home.consent_save', ['id' => $user_id]) }}" method="POST">
     @csrf
-    <input type="hidden" name="consent_token" value="@php echo 
-    $pdpa_token @endphp">
 
 <div class="form-group mb-25 mt-1">
     <div class="form-check ps-0">

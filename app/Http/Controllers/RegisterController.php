@@ -11,18 +11,21 @@ use Carbon\Carbon;
 use App\Models\user_register;
 use Illuminate\Support\Str;
 use App\Models\consent_chk;
+use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
 {
     public function consent()
     {        
-        return view('home.consent');
+        $member_id = substr(str_shuffle("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 8);
+        $user_id = Session::put('member_id', $member_id);
+        return view('home.consent',['id' => $member_id]);
     }
 
     public function consent_save(Request $request)
     {
         DB::table('consent_chks')->insert([
-            'consent_token' => $request->consent_token,
+            'consent_token' => $request->_token,
             'member_id' => $request->id,
             'consent_chk' => $request->consent_chk,
             'created_at' => Carbon::now()
