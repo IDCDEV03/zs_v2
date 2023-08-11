@@ -31,10 +31,18 @@
                                 <div class="card-body">
                            <form action="{{ route('login.perform') }}" method="POST">
                                         @csrf
+
+                                        <div class=" alert alert-info " role="alert">
+                                            <div class="alert-content">        
+                                               <p>เข้าสู่ระบบด้วยเบอร์โทรศัพท์ที่ลงทะเบียน</p>
+                                            </div>
+                                         </div>
+
+                                        <span class="text-normal color-primary"></span>
                                         <div class="edit-profile__body">
                                             <div class="form-group mb-20">
-                                                <label for="email">เบอร์โทรศัพท์</label>
-                                                <input type="text" class="form-control" id="username" name="username" placeholder="หมายเลขโทรศัพท์ 10 หลัก">        
+                                                <label for="email">Username</label>
+                                                <input type="text" class="form-control" id="username" name="username" placeholder="ชื่อผู้ใช้">        
                                             </div>
                                             <div class="form-group mb-15">
                                                 <label for="password-field">password</label>
