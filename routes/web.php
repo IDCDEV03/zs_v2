@@ -28,10 +28,9 @@ Route::get('/login', $controller_path . '\LoginController@login_show')->name('lo
 Route::post('/login', $controller_path . '\LoginController@login')->name('login.perform');
 Route::get('/consent', $controller_path . '\RegisterController@consent')->name('consent');
 Route::POST('/consent_save', $controller_path . '\RegisterController@consent_save')->name('home.consent_save');
+Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
-
-/* Line link */ 
-
+/** User Class */
 Route::get('/home', $controller_path . '\UserController@home_index')->name('home.index');
 
 Route::get('/information/{id}', $controller_path . '\UserController@information')->name('home.information');
@@ -42,15 +41,7 @@ Route::get('/information3/{id}', $controller_path . '\UserController@information
 
 Route::get('/information4/{id}', $controller_path . '\UserController@information4')->name('home.information4');
 
-Route::get('/dashboard', $controller_path . '\UserController@dashboard')->name('home.dashboard');
-
 Route::get('/complete', $controller_path . '\UserController@complete_page')->name('home.complete');
-
-Route::get('/products', $controller_path . '\UserController@products')->name('home.products');
-
-Route::get('/attitudetest', $controller_path . '\UserController@attitudetest')->name('home.attitudetest');
-
-Route::get('/associate', $controller_path . '\UserController@associate')->name('home.associate');
 
 /* insert data */
 Route::post('/save_information1/{id}', $controller_path . '\UserController@information1_save')->name('home.saveinformation1');
@@ -58,6 +49,22 @@ Route::post('/save_information1/{id}', $controller_path . '\UserController@infor
 Route::post('/save_information2/{id}', $controller_path . '\UserController@information2_save')->name('home.saveinformation2');
 
 Route::post('/save_information4/{id}', $controller_path . '\UserController@information4_save')->name('home.saveinformation4');
+
+/* Middleware User */ 
+Route::group(['middleware' => 'UserLogin'], function () {
+$controller_path = 'App\Http\Controllers';
+
+Route::get('/dashboard', $controller_path . '\UserController@dashboard')->name('home.dashboard');
+
+Route::get('/products', $controller_path . '\UserController@products')->name('home.products');
+
+Route::get('/attitudetest', $controller_path . '\UserController@attitudetest')->name('home.attitudetest');
+
+Route::get('/associate', $controller_path . '\UserController@associate')->name('home.associate');
+
+});
+
+
 
 /** Admin Route */
 Route::group(['middleware' => 'isAdmin'], function () {

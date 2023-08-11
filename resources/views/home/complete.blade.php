@@ -40,6 +40,7 @@
                             <div class="col-12">
                                 <div class="mb-25">                                 
                                                <div class="container-fluid">
+                                                <a href="{{route('home.dashboard')}}" class="btn btn-primary">หน้าหลัก</a>
                                                   <div class="row justify-content-md-center"> 
                                                      <div class="col-md-auto">
                                                         <a href="https://www.facebook.com/iddrivescontact">

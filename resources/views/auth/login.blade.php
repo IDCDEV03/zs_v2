@@ -33,13 +33,13 @@
                                         @csrf
                                         <div class="edit-profile__body">
                                             <div class="form-group mb-20">
-                                                <label for="email">Username </label>
-                                                <input type="text" class="form-control" id="username" name="username" placeholder="ชื่อผู้ใช้">        
+                                                <label for="email">เบอร์โทรศัพท์</label>
+                                                <input type="text" class="form-control" id="username" name="username" placeholder="หมายเลขโทรศัพท์ 10 หลัก">        
                                             </div>
                                             <div class="form-group mb-15">
                                                 <label for="password-field">password</label>
                                                 <div class="position-relative">
-                                                    <input id="password-field" type="password" class="form-control" name="password" placeholder="Password" value="admin">
+                                                    <input id="password-field" type="password" class="form-control" name="password" placeholder="รหัสผ่าน" >
                                                     <span toggle="#password-field" class="uil uil-eye-slash text-lighten fs-15 field-icon toggle-password2"></span>
                                                 </div>
                                                 @if($errors->has('password'))

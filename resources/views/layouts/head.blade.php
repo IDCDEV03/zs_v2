@@ -29,7 +29,7 @@
              <li class="nav-author">
                 <div class="dropdown-custom">
                    <a href="javascript:;" class="nav-item-toggle"><img src="{{ asset('theme/img/author-nav.jpg')}}" alt="" class="rounded-circle">
-                      <span class="nav-item__title">Danial<i class="las la-angle-down nav-item__arrow"></i></span>
+                      <span class="nav-item__title">{{ Auth::user()->username }}<i class="las la-angle-down nav-item__arrow"></i></span>
                    </a>
                    <div class="dropdown-parent-wrapper">
                       <div class="dropdown-wrapper">

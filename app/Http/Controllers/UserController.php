@@ -97,6 +97,17 @@ class UserController extends Controller
             'std_family_member' => $request->std_family_member,
             'created_at' => Carbon::now()
           ]);
+
+          DB::table('user_registers')->insert([
+            'member_id' => $user_id,
+            'username' => $request->member_phone,
+            'password' => Hash::make($request->member_phone),
+            'user_role' => 'user',
+            'isAdmin' => '0',
+            'created_at' => Carbon::now()
+          ]);
+
+
           return redirect()->route('home.information2', ['id' => $request->id]);
     }
 
