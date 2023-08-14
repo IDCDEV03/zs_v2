@@ -10,6 +10,49 @@
                 <img class="svg" src="{{ asset('theme/img/svg/align-center-alt.svg')}}" alt="img"></a>
           </div>
        </div>
+
+       <div class="top-menu">
+
+         <div class="hexadash-top-menu position-relative">
+            <ul class="d-flex align-items-center flex-wrap">
+               <li>
+                  <a href="{{route('home.dashboard')}}" class="active">หน้าหลัก</a>
+               
+               </li>
+               <li class="has-subMenu">
+                  <a href="#" class="">ห้องสังคม</a>
+                  <ul class="subMenu">
+                     <li class="">
+                        <a href="#">ความถนัด</a>
+                     </li>
+                     <li class="">
+                        <a href="#">ความสนใจอาชีพ</a>
+                     </li>
+                     <li class="">
+                        <a href="#">สุขภาพ</a>
+                     </li>
+                  </ul>
+               </li>
+               <li class="has-subMenu">
+                  <a href="#" class="">ผลิตภัณฑ์ของเรา</a>
+                  <ul class="subMenu">
+                     <li class="">
+                        <a href="{{route('home.products_dl')}}">เรียนขับรถ</a>
+                     </li>  
+                     <li class="">
+                        <a href="#">ศูนย์ฝึกอบรม คปภ.</a>
+                     </li>
+                     <li class="">
+                        <a href="#">หลักสูตรโดรน</a>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="#" class="">ข่าวสาร/กิจกรรม</a>
+               </li>
+            </ul>
+         </div>
+       </div>
              
        <!-- ends: navbar-left -->
        <div class="navbar-right">
@@ -29,7 +72,7 @@
              <li class="nav-author">
                 <div class="dropdown-custom">
                    <a href="javascript:;" class="nav-item-toggle"><img src="{{ asset('theme/img/author-nav.jpg')}}" alt="" class="rounded-circle">
-                      <span class="nav-item__title">{{ Auth::user()->username }}<i class="las la-angle-down nav-item__arrow"></i></span>
+                      <span class="nav-item__title">{{ Auth::user()->member_name }}<i class="las la-angle-down nav-item__arrow"></i></span>
                    </a>
                    <div class="dropdown-parent-wrapper">
                       <div class="dropdown-wrapper">
@@ -38,8 +81,8 @@
                                <img src="{{ asset('theme/img/author-nav.jpg')}}" alt="" class="rounded-circle">
                             </div>
                             <div>
-                               <h6>Rabbi Islam Rony</h6>
-                               <span>UI Designer</span>
+                               <h6>{{ Auth::user()->member_name }}</h6>
+                               <span>สมาชิก</span>
                             </div>
                          </div>
                          <div class="nav-author__options">

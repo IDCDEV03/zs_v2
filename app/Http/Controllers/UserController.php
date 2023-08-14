@@ -98,15 +98,17 @@ class UserController extends Controller
             'created_at' => Carbon::now()
           ]);
 
+          $member_name = $request->prefix.$request->member_name." ".$request->member_lastname;
+
           DB::table('user_registers')->insert([
             'member_id' => $user_id,
+            'member_name' => $member_name,
             'username' => $request->member_phone,
             'password' => Hash::make($request->member_phone),
             'user_role' => 'user',
             'isAdmin' => '0',
             'created_at' => Carbon::now()
           ]);
-
 
           return redirect()->route('home.information2', ['id' => $request->id]);
     }

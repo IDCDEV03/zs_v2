@@ -6,6 +6,7 @@ use App\Http\Controllers\API\TambonController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserDashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,6 +58,8 @@ $controller_path = 'App\Http\Controllers';
 Route::get('/dashboard', $controller_path . '\UserController@dashboard')->name('home.dashboard');
 
 Route::get('/products', $controller_path . '\UserController@products')->name('home.products');
+
+Route::get('/products_driver', $controller_path . '\UserDashboardController@products_driver')->name('home.products_dl');
 
 Route::get('/attitudetest', $controller_path . '\UserController@attitudetest')->name('home.attitudetest');
 

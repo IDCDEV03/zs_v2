@@ -34,11 +34,52 @@
 
             <div class="container-fluid p-3">
 
-                <div class="card card-horizontal card-default card-md mb-3 ">
-                   
-                    <div class="card-body py-md-30">
-                            
+            
+                <div class="row">
+                    <div class="col-xxl-12 mb-25">
+                       <div class="card banner-feature--18 new d-flex bg-white">
+                          <div class="container-fluid">
+                             <div class="row">
+                                <div class="col-xl-6">
+                                   <div class="card-body px-25">
+                                      <h1 class="banner-feature__heading color-dark">Hey Danial! Welcome to the Dashboard
+                                      </h1>
+                                      <p class="banner-feature__para color-dark">There are many variations of passages of
+                                         Lorem Ipsum available,<br>
+                                         ut the majority have suffered passages of Lorem Ipsum available alteration in
+                                         some form
+                                      </p>                                   
+                                   </div>
+                                </div>
+                                <div class="col-xl-6">
+                                   <div class="banner-feature__shape">
+                                      <img src="{{asset('theme/img/danial.png')}}" alt="img">
+                                   </div>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="bd-example-row">
+                        <div class="bd-example">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm"><img class="img-fluid" src="{{asset('theme/img/banner_zs.png')}}" alt="img"></div>
+                                    <div class="col-sm">
 
+                                    <a href="{{route('home.products')}}">
+                                        <img class="img-fluid" src="{{asset('theme/img/banner_products.png')}}" alt="img">
+                                    </a>
+
+                                    </div>
+                                    <div class="col-sm"><img class="img-fluid" src="{{asset('theme/img/banner_news.png')}}" alt="img"></div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>

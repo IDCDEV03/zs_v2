@@ -18,6 +18,7 @@ class user_register extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'member_name',
         'username',
         'password',
         'consent_token',

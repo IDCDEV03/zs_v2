@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ID Drives V2.0</title>
+    <title>ID Drives Company</title>
 
     @include('layouts.header')
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
@@ -39,18 +39,22 @@
                     <div class="card-body py-md-30">
                         <div class="horizontal-form">
                             <div class="col-12">
-                                <div class="mb-25">                                 
-                                               <div class="container-fluid">
-                                                  <div class="row justify-content-md-center"> 
-                                                     <div class="col-md-auto">
-                                                        <img src="{{asset('theme/img/card05.jpg')}}" class="rounded mx-auto d-block img-fluid" width="400px">
-                                                     </div>
-                                                     <div class="col-md-auto">
-                                                        <img src="{{asset('theme/img/card08.png')}}" class="rounded mx-auto d-block img-fluid" width="400px">
-                                                     </div>
-                                                  </div>
-                                               </div>
+                    <div class="mb-25">                                 
+                        <div class="container-fluid">
+                            <div class="row justify-content-md-center"> 
+
+                                <div class="col-md-auto">
+                                    <a href="{{route('home.products_dl')}}">
+                                <img src="{{asset('theme/img/card05.jpg')}}" class="rounded mx-auto d-block img-fluid" width="400px">
+
+                            </a>
                                 </div>
+
+                              
+
+                            </div>
+                        </div>
+                    </div>
                              </div>
                         </div>
                     </div>
