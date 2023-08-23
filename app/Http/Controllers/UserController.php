@@ -64,6 +64,32 @@ class UserController extends Controller
         return view('home.complete');
     }
 
+    public function tz_list()
+    {
+        $tz_list = DB::table('tz_groups')
+        ->get();
+        return view('home.tz_list',compact('tz_list'));
+    }
+
+    public function tz_group($id)
+    {
+        $tz_group = DB::table('tz_courses')
+        ->where('tz_group','=',$id)
+        ->get();
+        return view('home.tz_group',['id' => $id],compact('tz_group'));
+    }
+
+
+    public function sub_status()
+    {
+        $user_id = Auth::user()->member_id;
+        $user_status = DB::table('user_sub_drones')
+        ->join('idd_drones','user_sub_drones.drone_id','=','idd_drones.drone_id')
+        ->where('user_sub_drones.user_id','=',$user_id)
+        ->get();
+        return view('home.sub_status',compact('user_status'));
+    }
+
 /** insert function */
 
     public function information1_save(Request $request)

@@ -19,6 +19,46 @@
                   <a href="{{route('admin.dashboard')}}" class="active">หน้าหลัก</a>
                
                </li>
+
+               <li class="has-subMenu">
+                  <a href="#" class="">โรงเรียนขับรถ</a>
+                  <ul class="subMenu">
+                     <li class="">
+                        <a href="{{route('admin.branch_list')}}">สาขาโรงเรียน</a>
+                     </li>
+                     <li class="">
+                        <a href="{{route('admin.dl_course')}}">หลักสูตร</a>
+                     </li>
+                  </ul>
+               </li>
+
+               
+               <li class="has-subMenu">
+                  <a href="#" class="">TZ</a>
+                  <ul class="subMenu">
+                     <li class="">
+                        <a href="#">**</a>
+                     </li>
+                     <li class="">
+                        <a href="#">***</a>
+                     </li>
+                  </ul>
+               </li>
+
+                    
+               <li class="has-subMenu">
+                  <a href="#" class="">Drone</a>
+                  <ul class="subMenu">
+                     <li class="">
+                        <a href="{{route('admin.drone_list')}}">รายการโดรน</a>
+                     </li>
+                     <li class="">
+                        <a href="#">***</a>
+                     </li>
+                  </ul>
+               </li>
+
+
                <li class="has-subMenu">
                   <a href="#" class="">เกี่ยวกับสมาชิก</a>
                   <ul class="subMenu">

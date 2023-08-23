@@ -37,21 +37,27 @@
                 <div class="card card-horizontal card-default card-md mb-3 ">
                    
                     <div class="card-body py-md-30">
-                        <div class="horizontal-form">
-                            <div class="col-12">
-                                <div class="mb-25">                                 
-                                               <div class="container-fluid">
-                                                  <div class="row justify-content-md-center"> 
-                                                     <div class="col-md-auto">
-                                                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6h1X2QLSyfYBnLSI2FJNWvJK7HqCmfjjQ9wtNEqt8pFK4_g/viewform">
-                                                        <img src="{{asset('theme/img/depa1.png')}}" class="rounded mx-auto d-block img-fluid" width="400px">
-                                                    </a>
-                                                     </div>
-                                                    
-                                                  </div>
-                                               </div>
+                        <div class="row">
+                            @foreach ($tz_list as $row)
+
+                            <div class="col-md">
+                                <div class="card">     
+                                    <div class="gc">
+                                        <div class="gc__img">
+                                            <a href="{{route('home.tz_group',['id' => $row->tz_group_id])}}">
+                                            <img src="{{asset($row->tz_group_cover)}}" alt="img" class="w-100 radius-xl">
+                                            </a>
+                                        </div>
+                                        <div class="card-body px-25 py-20">
+                                            <div class="gc__title">
+                                                <P>{{$row->tz_group_name}}</P>
+                                            </div>
+                                        </div>
+                                    </div>     
                                 </div>
-                             </div>
+                            </div>                            
+                            
+                              @endforeach
                         </div>
                     </div>
                 </div>
@@ -67,8 +73,5 @@
 
     @include('layouts.script')
  
-
-
 </body>
-
 </html>

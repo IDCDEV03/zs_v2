@@ -15,8 +15,88 @@ use Illuminate\Support\Facades\Session;
 
 class UserDashboardController extends Controller
 {
+
     public function products_driver()
     {
-        return view('home.products_dl');
+        $branch = DB::table('idd_branches')
+        ->join('idd_branch_imgs','idd_branches.branch_id','=','idd_branch_imgs.branch_id')
+        ->get();
+        return view('home.products_dl',compact('branch'));
     }
+
+    public function dl_detail($id)
+    {
+        $branch_detail = DB::table('idd_branches')
+        ->where('idd_branches.branch_id','=',$id)
+        ->get();
+        $branch_type = DB::table('driving_license_types')
+        ->join('driving_license_imgs','driving_license_types.dl_type','=','driving_license_imgs.dl_type')
+        ->where('driving_license_types.dl_branch','=',$id)
+        ->groupBy('driving_license_types.dl_type')
+        ->get();
+        return view('home.dl_detail',compact('branch_detail','branch_type'));
+    }
+
+    public function dl_type($id)
+    {
+        $dl_type = DB::table('driving_license_lists')
+        ->where('dl_type','=',$id)
+        ->get();
+        return view('home.driving_type',['id' => $id], compact('dl_type'));
+    }
+
+    public function drone_page()
+    {
+        $drone_list = DB::table('idd_drones')
+        ->where('drone_active','=','1')
+        ->get();
+
+        $drone_sale = DB::table('idd_drone_sales')
+        ->get();
+        return view('home.product_drone',compact('drone_list','drone_sale'));
+    }
+
+    public function drone_detail($id)
+    {
+        $drone_detail = DB::table('idd_drones')
+        ->where('drone_id','=',$id)
+        ->where('drone_active','=','1')
+        ->get();
+        return view('home.drone_detail',['id' => $id],compact('drone_detail'));
+    }
+
+    public function drone_agras($id)
+    {
+        $drone_agras = DB::table('idd_drone_sales')
+        ->where('d_id','=',$id)
+        ->get();
+        return view('home.drone_agras',['id' => $id],compact('drone_agras'));
+    }
+
+
+    public function drone_sub(Request $request)
+    {
+  
+        DB::table('user_sub_drones')->insert([
+            'user_id' => $request->member_id,
+            'drone_id' => $request->drone_id,
+            'sub_status' => '0',
+            'user_phone' => $request->user_phone,
+            'user_timing' => $request->user_timing,
+            'user_chk' => $request->user_chk,
+            'created_at' => Carbon::now()
+        ]);
+
+        return redirect()->route('home.drone')->with('success', "บันทึกความสนใจของท่านเรียบร้อยแล้ว");
+    }
+
+    public function tz_detail($id)
+    {
+        $tz_detail = DB::table('tz_courses')
+        ->where('tz_id','=', $id)
+        ->get();
+        return view('home.tz_detail',['id' => $id],compact('tz_detail'));
+    }
+
+  
 }

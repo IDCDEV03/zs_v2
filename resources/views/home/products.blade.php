@@ -34,31 +34,37 @@
 
             <div class="container-fluid p-3">
 
-                <div class="card card-horizontal card-default card-md mb-3 ">
-                   
-                    <div class="card-body py-md-30">
-                        <div class="horizontal-form">
-                            <div class="col-12">
-                    <div class="mb-25">                                 
-                        <div class="container-fluid">
-                            <div class="row justify-content-md-center"> 
 
-                                <div class="col-md-auto">
-                                    <a href="{{route('home.products_dl')}}">
-                                <img src="{{asset('theme/img/card05.jpg')}}" class="rounded mx-auto d-block img-fluid" width="400px">
 
-                            </a>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="bd-example01-row">
+                        <div class="bd-example">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <a href="{{route('home.products_dl')}}">
+                                            <img class="img-fluid" src="{{asset('theme/img/card05.jpg')}}" alt="img">
+                                        </a>
+                                    </div>
+                                    <div class="col-sm">
+                                    <a href="{{route('home.tz_list')}}">
+                                        <img class="img-fluid" src="{{asset('theme/img/menu_tz.png')}}" alt="img">
+                                    </a>
+                                    </div>
+                                    
+                                    <div class="col-sm">
+                                        <a href="{{route('home.drone')}}">
+                                        <img class="img-fluid" src="{{asset('theme/img/menu_drone.png')}}" alt="img">
+                                        </a>
+                                    </div>
                                 </div>
-
-                              
-
                             </div>
                         </div>
-                    </div>
-                             </div>
                         </div>
                     </div>
                 </div>
+               
             </div>
         </div>
 

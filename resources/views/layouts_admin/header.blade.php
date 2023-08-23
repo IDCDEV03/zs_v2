@@ -8,7 +8,6 @@
 
 <link rel="stylesheet" href="{{ asset('theme/assets/vendor_assets/css/footable.standalone.min.css') }}">
 
-<link rel="stylesheet" href="{{ asset('theme/assets/vendor_assets/css/fullcalendar@5.2.0.css') }}">
 
 <link rel="stylesheet" href="{{ asset('theme/assets/vendor_assets/css/jquery-jvectormap-2.0.5.css') }}">
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ID Drives V2.0</title>
+    <title>ID Drives Company</title>
 
     @include('layouts.header')
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
@@ -47,131 +47,40 @@
                           </ul>
                           <div class="push-down push-down--style">
                              <div class="filtr-container">
-                                <div class="filtr-item filtr-item--style" data-category="1" data-sort="Busy streets">
-                                   <div class="card">
-     
-                                      <div class="gc ">
+                              @foreach ($branch as $item)
+                                <div class="filtr-item filtr-item--style" data-category="{{$item->branch_category}}" data-sort="Busy streets">
+                                   <div class="card">     
+                                      <div class="gc">
                                          <div class="gc__img">
-                                            <img src="{{asset('theme/img/card_branch/branch_nonthan.png')}}" alt="img" class="w-100 radius-xl">
+                                          <a href="{{route('home.dl_detail',['id' => $item->branch_id])}}">
+                                            <img src="{{asset($item->branch_img)}}" alt="img" class="w-100 radius-xl">
+                                          </a>
                                          </div>
                                          <div class="card-body px-25 py-20">
                                             <div class="gc__title">
-                                               <P>สาขาโนนทัน จ.ขอนแก่น</P>
+                                               <P>สาขา{{$item->branch_name}} จังหวัด{{$item->branch_province}}</P>
                                                <span>โรงเรียนสอนขับรถพร้อมใบขับขี่</span>
                                             </div>
                                          </div>
-                                      </div>
-     
+                                      </div>     
                                    </div>
                                 </div>
-                                <div class="filtr-item filtr-item--style" data-category="1" data-sort="Luminous night">
-                                   <div class="card">
-     
-                                      <div class="gc ">
-                                         <div class="gc__img">
-                                            <img src="{{asset('theme/img/card_branch/branch_pro.png')}}" alt="img" class="w-100 radius-xl">
-                                         </div>
-                                         <div class="card-body px-25 py-20">
-                                            <div class="gc__title">
-                                               <P>สาขาเดอะโปรเฟชชั่นแนล (ถ.เลี่ยงเมือง จ.ขอนแก่น)</P>
-                                               <span>โรงเรียนสอนขับรถพร้อมใบขับขี่</span>
-                                            </div>
-                                         </div>
-                                      </div>
-     
-                                   </div>
-                                </div>
-                                <div class="filtr-item filtr-item--style" data-category="2" data-sort="City wonders">
-                                   <div class="card">
-     
-                                      <div class="gc ">
-                                         <div class="gc__img">
-                                            <img src="{{asset('theme/img/card_branch/branch_s1.png')}}" alt="img" class="w-100 radius-xl">
-                                         </div>
-                                         <div class="card-body px-25 py-20">
-                                            <div class="gc__title">
-                                               <P>สาขา อ.เมือง จ.มหาสารคาม</P>
-                                               <span>โรงเรียนสอนขับรถพร้อมใบขับขี่</span>
-                                            </div>
-                                         </div>
-                                      </div>
-     
-                                   </div>
-                                </div>
-                                <div class="filtr-item filtr-item--style" data-category="2" data-sort="In production">
-                                   <div class="card">
-     
-                                      <div class="gc ">
-                                         <div class="gc__img">
-                                            <img src="{{asset('theme/img/card_branch/branch_s2.png')}}" alt="img" class="w-100 radius-xl">
-                                         </div>
-                                         <div class="card-body px-25 py-20">
-                                            <div class="gc__title">
-                                               <P>สาขา อำเภอพยัคฆภูมิพิสัย</P>
-                                               <span>โรงเรียนสอนขับรถพร้อมใบขับขี่</span>
-                                            </div>
-                                         </div>
-                                      </div>
-     
-                                   </div>
-                                </div>
-
-                                <div class="filtr-item filtr-item--style" data-category="3" data-sort="In production">
-                                    <div class="card">
-      
-                                       <div class="gc ">
-                                          <div class="gc__img">
-                                             <img src="{{asset('theme/img/card_branch/branch_saraburi.png')}}" alt="img" class="w-100 radius-xl">
-                                          </div>
-                                          <div class="card-body px-25 py-20">
-                                             <div class="gc__title">
-                                                <P>สาขาแก่งคอย จ.สระบุรี</P>
-                                                <span>โรงเรียนสอนขับรถพร้อมใบขับขี่</span>
-                                             </div>
-                                          </div>
-                                       </div>
-      
-                                    </div>
-                                 </div>
-
-                                 <div class="filtr-item filtr-item--style" data-category="4" data-sort="In production">
-                                    <div class="card">
-      
-                                       <div class="gc ">
-                                          <div class="gc__img">
-                                             <img src="{{asset('theme/img/card_branch/branch_pathum.png')}}" alt="img" class="w-100 radius-xl">
-                                          </div>
-                                          <div class="card-body px-25 py-20">
-                                             <div class="gc__title">
-                                                <P>สาขาลำลูกกา จ.ปทุมธานี</P>
-                                                <span>โรงเรียนสอนขับรถพร้อมใบขับขี่</span>
-                                             </div>
-                                          </div>
-                                       </div>
-      
-                                    </div>
-                                 </div>
-
+                                @endforeach
                              </div>
                           </div>
                        </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
-
 
 
     <!-----------------------------footer------------------------>
     @include('layouts.footer')   
     </main>
   
-
     @include('layouts.script')
  
-
 
 </body>
 

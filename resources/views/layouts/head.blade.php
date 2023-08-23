@@ -1,4 +1,5 @@
 <header class="header-top">
+
     <nav class="navbar navbar-light">
        <div class="navbar-left">
           <div class="logo-area">
@@ -40,12 +41,15 @@
                         <a href="{{route('home.products_dl')}}">เรียนขับรถ</a>
                      </li>  
                      <li class="">
-                        <a href="#">ศูนย์ฝึกอบรม คปภ.</a>
+                        <a href="{{route('home.tz_list')}}">ศูนย์ฝึกอบรม</a>
                      </li>
                      <li class="">
-                        <a href="#">หลักสูตรโดรน</a>
+                        <a href="{{route('home.drone')}}">หลักสูตรโดรน</a>
                      </li>
                   </ul>
+               </li>
+               <li>
+                  <a href="{{route('home.sub_status')}}" class="">สถานะการสมัคร</a>
                </li>
                <li>
                   <a href="#" class="">ข่าวสาร/กิจกรรม</a>
@@ -127,7 +131,15 @@
              <a href="#" class="btn-author-action">
                 <img class="svg" src="{{ asset('theme/img/svg/more-vertical.svg')}}" alt="more-vertical"></a>
           </div>
+ 
        </div>
        <!-- ends: .navbar-right -->
     </nav>
  </header>
+ <div class="sidebar-wrapper">
+   <aside class="sidebar sidebar-collapse" id="sidebar">
+      <div class="sidebar__menu-group">
+         @include('layouts._menu_sidebar')
+      </div>
+   </aside>
+</div>

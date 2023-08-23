@@ -23842,6 +23842,14 @@ table.table-rounded tbody tr td:last-child {
   color: var(--color-white);
 }
 
+.bd-example01-row .row > .col,
+.bd-example01-row .row > [class^=col-] {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: rgba(245, 217, 59, 0.584);
+  color: var(--color-white);
+}
+
 .bd-example-row .row > div:nth-last-child(odd) {
   background-color: var(--color-primary);
 }
