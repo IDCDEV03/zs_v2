@@ -35,7 +35,7 @@
             <div class="container-fluid p-3">
 
             
-                <div class="row">
+                <!---<div class="row">
                     <div class="col-xxl-12 mb-25">
                        <div class="card banner-feature--18 new d-flex bg-white">
                           <div class="container-fluid">
@@ -60,7 +60,7 @@
                           </div>
                        </div>
                     </div>
-                </div>
+                </div>--->
                 <div class="card">
                     <div class="card-body">
                         <div class="bd-example-row">

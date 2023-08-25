@@ -33,5 +33,10 @@ class AdminController extends Controller
         return view('admin.member_detail',compact('member_data'));
     }
 
+    public function member_dashboard()
+    {
+        return view('admin.member_dashboard');
+    }
+
 
 }

@@ -66,7 +66,7 @@
                         <a href="{{route('admin.listuser')}}">รายชื่อสมาชิก</a>
                      </li>
                      <li class="">
-                        <a href="demo2.html">รายงาน</a>
+                        <a href="{{route('admin.member_dashboard')}}">แก้ไขข้อความต้อนรับ</a>
                      </li>
                      <li class="">
                         <a href="demo3.html">Demo 3</a>

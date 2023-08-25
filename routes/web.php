@@ -117,6 +117,8 @@ Route::get('/back', [AdminController::class, 'admin_index'])->name('admin.dashbo
 Route::get('/users', [AdminController::class, 'admin_listuser'])->name('admin.listuser');
 Route::get('/member/{id}', [AdminController::class, 'member_detail'])->name('admin.memberdetail');
 
+Route::get('/member_dashboard', [AdminController::class, 'member_dashboard'])->name('admin.member_dashboard');
+
 Route::get('/branch_list', [AdminDashboardController::class, 'branch_list'])->name('admin.branch_list');
 
 Route::get('/branch_edit/{id}', [AdminDashboardController::class, 'branch_edit'])->name('admin.branch_edit');
