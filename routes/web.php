@@ -21,7 +21,7 @@ use App\Http\Controllers\AdminDashboardController;
 $controller_path = 'App\Http\Controllers';
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login.show');
 });
 
 /** LOGIN */
