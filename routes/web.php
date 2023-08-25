@@ -18,15 +18,25 @@ use App\Http\Controllers\AdminDashboardController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+/** GUEST */
+
+
 $controller_path = 'App\Http\Controllers';
 
 Route::get('/', $controller_path . '\LoginController@login_show')->name('login.show');
 
+
 /** LOGIN */
 
-Route::get('/login', $controller_path . '\LoginController@login_show')->name('login.show');
+Route::get('/signin', $controller_path . '\LoginController@signin_show')->name('signin_show');
+
+
 Route::post('/login', $controller_path . '\LoginController@login')->name('login.perform');
+
 Route::get('/consent', $controller_path . '\RegisterController@consent')->name('consent');
+
 Route::POST('/consent_save', $controller_path . '\RegisterController@consent_save')->name('home.consent_save');
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
@@ -42,6 +52,10 @@ Route::get('/information3/{id}', $controller_path . '\UserController@information
 Route::get('/information4/{id}', $controller_path . '\UserController@information4')->name('home.information4');
 
 Route::get('/complete', $controller_path . '\UserController@complete_page')->name('home.complete');
+
+Route::get('/id_products', $controller_path . '\GuestController@guest_products')->name('guest.products');
+
+Route::get('/id_social', $controller_path . '\GuestController@guest_social')->name('guest.social');
 
 /* insert data */
 Route::post('/save_information1/{id}', $controller_path . '\UserController@information1_save')->name('home.saveinformation1');
@@ -75,7 +89,11 @@ Route::get('/products_driver', $controller_path . '\UserDashboardController@prod
 
 Route::get('/dl/{id}', $controller_path . '\UserDashboardController@dl_detail')->name('home.dl_detail');
 
-Route::get('/dl_type/{id}', $controller_path . '\UserDashboardController@dl_type')->name('admin.dl_type');
+Route::get('/dl_type/{type}/{branch}', $controller_path . '\UserDashboardController@dl_type')->name('home.dl_type');
+
+Route::POST('/driving_sub', $controller_path . '\UserDashboardController@driving_sub')->name('home.driving_sub');
+
+/** END Driv */
 
 Route::get('/attitudetest', $controller_path . '\UserController@attitudetest')->name('home.attitudetest');
 

@@ -37,12 +37,12 @@ class UserDashboardController extends Controller
         return view('home.dl_detail',compact('branch_detail','branch_type'));
     }
 
-    public function dl_type($id)
+    public function dl_type($type,$branch)
     {
-        $dl_type = DB::table('driving_license_lists')
-        ->where('dl_type','=',$id)
+        $dl_type = DB::table('driving_license_lists')     
+        ->where('driving_license_lists.dl_type','=',$type)
         ->get();
-        return view('home.driving_type',['id' => $id], compact('dl_type'));
+        return view('home.driving_type',['type' => $type,'branch'=>$branch], compact('dl_type'));
     }
 
     public function drone_page()
@@ -88,6 +88,21 @@ class UserDashboardController extends Controller
         ]);
 
         return redirect()->route('home.drone')->with('success', "บันทึกความสนใจของท่านเรียบร้อยแล้ว");
+    }
+
+    public function driving_sub(Request $request)
+    {  
+        DB::table('user_sub_drivings')->insert([
+            'user_id' => $request->member_id,
+            'branch_id' => $request->dl_branch,
+            'dl_type' => $request->dl_type,
+            'sub_status' => '0',
+            'user_phone' => $request->user_phone,
+            'user_timing' => $request->user_timing,
+            'user_chk' => $request->user_chk,
+            'created_at' => Carbon::now()
+        ]);
+        return redirect()->route('home.sub_status')->with('success', "บันทึกความสนใจของท่านเรียบร้อยแล้ว");
     }
 
     public function tz_detail($id)

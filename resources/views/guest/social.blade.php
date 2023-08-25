@@ -28,7 +28,7 @@
     <div class="mobile-author-actions"></div>
 
     <main class="main-content">
-        @include('layouts.head')
+        @include('guest.head')
 
         <div class="contents">
 
@@ -68,11 +68,11 @@
 
 
     <!-----------------------------footer------------------------>
-    @include('layouts.footer')   
+    @include('guest.footer')   
     </main>
   
 
-    @include('layouts.script')
+    @include('guest.script')
  
 
 

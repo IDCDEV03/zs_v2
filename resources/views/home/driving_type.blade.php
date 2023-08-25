@@ -65,28 +65,31 @@
                          </div> 
                          @endif
 
-                     @endforeach                   
+                              
 
-                     <form action="">
-
+<form action="{{route('home.driving_sub')}}" method="POST">
+ @csrf
+<input type="hidden" name="dl_branch" value="{{$branch}}">
+<input type="hidden" name="dl_type" value="{{$type}}">
+ <input type="hidden" name="member_id" value="{{Auth::user()->member_id}}">
                         <div class="mb-3">
                             <label for="car2" class="form-label">สนใจสมัครหลักสูตร</label>
-                            <input type="text" class="form-control" id="car2" placeholder="ระบุเบอร์โทรศัพท์" maxlength="10">
+                            <input type="text" class="form-control" id="car2" placeholder="ระบุเบอร์โทรศัพท์" name="user_phone" maxlength="10">
                           </div>
                           
                           <div class="mb-3">
                             <label for="car2" class="form-label">ช่วงเวลาที่สะดวกให้ติดต่อกลับ</label>
-                            <input type="text" class="form-control" name="time_chk">
+                            <input type="text" name="user_timing" class="form-control" name="time_chk">
                           </div>
 
                           <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" value="1" name="user_chk">
                             <label class="form-check-label" for="exampleCheck1">ยืนยันการสมัครหลักสูตร</label>
                           </div>
                           <button type="submit" class="btn btn-success">บันทึก</button>
 
                      </form>
-
+                     @endforeach   
 
                     </div>
                 </div>

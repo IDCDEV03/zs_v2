@@ -100,7 +100,7 @@
     
 
                                     <div class="col-md-4"> 
-                                        <a href="{{route('admin.dl_type', ['id' => $item->dl_type])}}">
+                                        <a href="{{route('home.dl_type', ['type' => $item->dl_type,'branch'=>$item->dl_branch])}}">
                                             <img class="img-fluid" src="{{asset($item->dl_cover)}}" alt="img">
                                         </a>
                                     </div>

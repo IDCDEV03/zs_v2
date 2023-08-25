@@ -87,7 +87,13 @@ class UserController extends Controller
         ->join('idd_drones','user_sub_drones.drone_id','=','idd_drones.drone_id')
         ->where('user_sub_drones.user_id','=',$user_id)
         ->get();
-        return view('home.sub_status',compact('user_status'));
+
+        $user_driv = DB::table('user_sub_drivings')
+        ->join('driving_license_lists','user_sub_drivings.dl_type','=','driving_license_lists.dl_type')
+        ->join('idd_branches','user_sub_drivings.branch_id','=','idd_branches.branch_id')
+        ->where('user_sub_drivings.user_id','=',$user_id)
+        ->get();
+        return view('home.sub_status',compact('user_status','user_driv'));
     }
 
 /** insert function */

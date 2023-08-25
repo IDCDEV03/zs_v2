@@ -21,6 +21,6 @@ class UserLogin
             return $next($request);
         }
         // Redirect to login page or show unauthorized page
-        return redirect('/login');
+        return redirect('/');
     }
 }

@@ -33,7 +33,11 @@
         <div class="contents">
 
             <div class="container-fluid p-3">
-
+@if (session('success'))
+    <div class="alert alert-success" role="alert">
+        <b>{{ session('success') }}</b>
+    </div>
+@endif
                 <div class="card card-default card-md bg-white card-bordered">
                     <div class="card-header">
                        <h6>สถานะการสมัคร</h6>
@@ -60,6 +64,37 @@
 
                                  <div class="tab-pane fade show active" id="tab-v-1" role="tabpanel" aria-labelledby="tab-v-1-tab">
                                    
+
+                                    <table class="table table-responsive">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">หลักสูตรที่สมัคร</th>
+                                            <th>สาขา</th>
+                                            <th scope="col">สถานะ</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                      @foreach ($user_driv as $item)                          
+                                          
+                                          <tr>
+                                            <th scope="row">1</th>
+                                            <td>{{$item->dl_course_name}}</td>
+                                            <td>{{$item->branch_name}} ({{$item->branch_province}}) </td>
+                                            <td>
+                                                @if ($item->sub_status == '0')
+                                                <span class="dm-tag tag-primary tag-transparented">รอเจ้าหน้าที่ติดต่อกลับ</span>
+                                                @elseif ($item->sub_status == '1')
+                                                <span class="dm-tag tag-success tag-transparented">ได้รับบริการเรียบร้อยแล้ว</span>
+                                                @elseif ($item->sub_status == '2')
+                                                <span class="dm-tag tag-danger tag-transparented">ยกเลิกการรับบริการ</span>
+                                                @endif
+
+                                            </td>
+                                          </tr>
+                      @endforeach                  
+                                        </tbody>
+                                      </table>
 
                                  </div>
                                  <!--end_Tab1-->

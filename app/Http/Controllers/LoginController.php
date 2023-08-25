@@ -16,6 +16,11 @@ class LoginController extends Controller
         {
             return view('auth.login');
         }
+        
+        public function signin_show()
+        {
+            return view('auth.sign_in');
+        }
 
         public function __construct()
         {

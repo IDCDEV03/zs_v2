@@ -91,29 +91,16 @@
                          </div>
                          <div class="nav-author__options">
                             <ul>
-                               <li>
-                                  <a href="">
-                                     <i class="uil uil-user"></i> Profile</a>
-                               </li>
+                              
                                <li>
                                   <a href="">
                                      <i class="uil uil-setting"></i>
                                      Settings</a>
                                </li>
-                               <li>
-                                  <a href="">
-                                     <i class="uil uil-key-skeleton"></i> Billing</a>
-                               </li>
-                               <li>
-                                  <a href="">
-                                     <i class="uil uil-users-alt"></i> Activity</a>
-                               </li>
-                               <li>
-                                  <a href="">
-                                     <i class="uil uil-bell"></i> Help</a>
-                               </li>
+                              
+                             
                             </ul>
-                            <a href="" class="nav-author__signout">
+                            <a href="{{route('logout')}}" class="nav-author__signout">
                                <i class="uil uil-sign-out-alt"></i> Sign Out</a>
                          </div>
                       </div>
