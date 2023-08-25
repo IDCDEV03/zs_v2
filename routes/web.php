@@ -20,9 +20,7 @@ use App\Http\Controllers\AdminDashboardController;
 */
 $controller_path = 'App\Http\Controllers';
 
-Route::get('/', function () {
-    return view('login.show');
-});
+Route::get('/', $controller_path . '\LoginController@login_show')->name('login.show');
 
 /** LOGIN */
 
