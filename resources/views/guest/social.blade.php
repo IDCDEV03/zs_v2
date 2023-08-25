@@ -35,30 +35,23 @@
             <div class="container-fluid p-3">
                 <div class="card">
                     <div class="card-body">
-                        <div class="bd-example01-row">
-                        <div class="bd-example">
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-sm">
-                                        <a href="{{route('home.products_dl')}}">
-                                            <img class="img-fluid" src="{{asset('theme/img/card05.jpg')}}" alt="img">
+                                        <a href="https://edukey.me/edukeyv3/quiz/">
+                                            <img class="img-fluid" src="{{asset('theme/img/edukey.png')}}" alt="img">
                                         </a>
                                     </div>
                                     <div class="col-sm">
-                                    <a href="{{route('home.tz_list')}}">
-                                        <img class="img-fluid" src="{{asset('theme/img/menu_tz.png')}}" alt="img">
-                                    </a>
+                                        
                                     </div>
-                                    
                                     <div class="col-sm">
-                                        <a href="{{route('home.drone')}}">
-                                        <img class="img-fluid" src="{{asset('theme/img/menu_drone.png')}}" alt="img">
-                                        </a>
+                                        
                                     </div>
+                                 
                                 </div>
                             </div>
-                        </div>
-                        </div>
+                      
                     </div>
                 </div>
                
