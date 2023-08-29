@@ -57,11 +57,12 @@
                                       </th>
                                   </tr>
                                </thead>
+                               @php
+                               $i = '1';
+                           @endphp
+                           @foreach ($user_sub_driv as $item)   
                                <tbody>
-                                @php
-                                    $i = '1';
-                                @endphp
-                                @foreach ($user_sub_driv as $item)   
+                              
                                 <td>
                                        @php
                                            echo $i++;
@@ -86,8 +87,9 @@
                                     <span class="dm-tag tag-danger tag-transparented">ยกเลิกการรับบริการ</span>
                                     @endif
                                 </td>
-                                @endforeach                         
+                                                  
                                </tbody>
+                               @endforeach      
                             </table>
                         </div>
                     </div>
