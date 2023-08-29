@@ -37,7 +37,61 @@
                 <div class="card card-horizontal card-default card-md mb-3 ">
                    
                     <div class="card-body py-md-30">
-                            
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                               <thead>
+                                  <tr class="userDatatable-header">
+                                     <th>
+                                        <span class="userDatatable-title">#</span>
+                                     </th>
+                                     <th>ชื่อ</th>
+                                     <th>เบอร์โทร</th>
+                                     <th>
+                                        <span class="userDatatable-title">หลักสูตรที่สนใจ</span>
+                                     </th>
+                                     <th>
+                                        <span class="userDatatable-title">สมัครเมื่อ</span>
+                                     </th>
+                                     <th>
+                                         <span class="userDatatable-title">สถานะ</span>
+                                      </th>
+                                  </tr>
+                               </thead>
+                               <tbody>
+                                @php
+                                    $i = '1';
+                                @endphp
+                                @foreach ($user_sub_driv as $item)   
+                                <td>
+                                       @php
+                                           echo $i++;
+                                       @endphp 
+                                </td>
+                                <td>
+                                    {{$item->member_name}}
+                                </td>
+                                <td>{{$item->user_phone}}
+                                <br>ช่วงเวลาที่สะดวกให้ติดต่อกลับ<br> {{$item->user_timing}}
+                                </td>
+                                <td> {{$item->dl_course_name}} <br>
+                                    สาขา {{$item->branch_name}} <br> (จ.{{$item->branch_province}})
+                                </td>
+                                <td>  {{ Carbon\Carbon::parse($item->created_at)->format('d/m/Y H:i') }}</td>
+                                <td>
+                                    @if ($item->sub_status == '0')
+                                    <span class="dm-tag tag-primary tag-transparented">รอเจ้าหน้าที่ติดต่อกลับ</span>
+                                    @elseif ($item->sub_status == '1')
+                                    <span class="dm-tag tag-success tag-transparented">ได้รับบริการเรียบร้อยแล้ว</span>
+                                    @elseif ($item->sub_status == '2')
+                                    <span class="dm-tag tag-danger tag-transparented">ยกเลิกการรับบริการ</span>
+                                    @endif
+                                </td>
+                                @endforeach                         
+                               </tbody>
+                            </table>
+                        </div>
+                    </div>
+             
 
                     </div>
                 </div>

@@ -11,11 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    public function admin_index()
-    {
-        return view('admin.dashboard');
-    }
-
+    
     public function admin_listuser()
     {
         $inf_p1 = DB::table('information_p1s')
@@ -44,6 +40,19 @@ class AdminController extends Controller
         ->orderBy('id', 'ASC')
         ->get();
         return view('admin.tz_course', compact('tz_course'));
+    }
+
+    public function admin_index(){
+        $user_sub_driv = DB::table('user_sub_drivings')
+        ->join('user_registers','user_sub_drivings.user_id','=','user_registers.member_id')
+        ->join('driving_license_lists','user_sub_drivings.dl_type','=','driving_license_lists.dl_type')
+        ->join('idd_branches','user_sub_drivings.branch_id','=','idd_branches.branch_id')
+        ->get();
+
+        $user_sub_drone = DB::table('user_sub_drones')
+        ->get();
+
+        return view('admin.dashboard', compact('user_sub_driv','user_sub_drone'));
     }
 
 
