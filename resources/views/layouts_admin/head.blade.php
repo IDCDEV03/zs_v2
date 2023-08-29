@@ -37,7 +37,7 @@
                   <a href="#" class="">TZ</a>
                   <ul class="subMenu">
                      <li class="">
-                        <a href="#">**</a>
+                        <a href="{{route('admin.tz_course')}}">แก้ไขข้อมูลหลักสูตร</a>
                      </li>
                      <li class="">
                         <a href="#">***</a>

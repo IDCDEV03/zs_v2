@@ -113,11 +113,12 @@
                                             <li class="list-box__item">
                                                 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> {{$item->branch_name}}
                                                
-                                                <a href="#">
-                                                <span class="text-danger" >
-                                                <i class="fa fa-times" aria-hidden="true"></i>
-                                                </span>
-                                                </a>
+                                            <form method="POST" action="{{ route('admin.del_branch', $item->id) }}" id="delete-form">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-default btn-squared btn-transparent-danger btn-sm" onclick="return confirmDelete()">ลบ
+                                                </button>
+                                            </form>
                                             </li>
                                           @endforeach
                                         </ul>
@@ -128,19 +129,21 @@
                                     <div class="list-box">
                                         <ul>
                                            <li class="list-box__item">เพิ่มสาขา</li>
-                                           <form action="">
+                                           <form action="{{route('admin.add_branch')}}" method="POST">
                                             @csrf
                                          @foreach ($dl_branch_notin as $item)           
+                                         <input type="hidden" value="{{$id}}" name="dl_type">
                                             <li class="list-box__item">
-                                                <div class="checkbox-theme-default custom-checkbox ">
-                                                    <input class="checkbox" type="checkbox" id="check-{{$item->id}}" value="{{$item->branch_id}}">
-                                                    <label for="check-{{$item->id}}">
-                                                       <span class="checkbox-text">
-                                                        {{$item->branch_name}}  
-                                                       </span>
+                                    <div class="radio-vertical-list">
+                                          <div class="radio-theme-default custom-radio ">
+                                            <input class="radio" type="radio" name="dl_branch" value="{{$item->branch_id}}" id="radio-vl-{{$item->id}}">
+                                                    <label for="radio-vl-{{$item->id}}">
+                                                        <span class="radio-text"> {{$item->branch_name}} 
+                                                        </span>
                                                     </label>
-                                                 </div>   
-                                            </li>
+                                                </div>
+                                           </div>
+                                        </li>
                                           @endforeach
                                         </ul>                                       
                                     </div>
@@ -178,6 +181,12 @@
   
 
     @include('layouts_admin.script')
+    <script>
+        function confirmDelete() {
+            return confirm("ต้องการนำสาขานี้ออกใช่หรือไม่?");
+        }
+    </script>
+
     <script type="text/javascript">
         $(document).ready(function (e) {
                 $('#img_cover').change(function(){

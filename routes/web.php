@@ -106,6 +106,9 @@ Route::get('/tz_group/{id}', $controller_path . '\UserController@tz_group')->nam
 
 Route::get('/tz_detail/{id}', $controller_path . '\UserDashboardController@tz_detail')->name('home.tz_detail');
 
+/** Zone Success */
+Route::get('/zs', [UserController::class, 'zone_success'])->name('home.zs_list');
+
 });
 
 
@@ -133,7 +136,15 @@ Route::POST('/dl_course_update', [AdminDashboardController::class, 'dl_course_up
 
 Route::get('/drones', [AdminDashboardController::class, 'drone_list'])->name('admin.drone_list');
 
+Route::delete('/dl_del/{id}', [AdminDashboardController::class,'del_branch'])->name('admin.del_branch');
 
+Route::POST('/dl_add', [AdminDashboardController::class,'add_branch'])->name('admin.add_branch');
 
+/** TZ Admin */
+Route::get('/tz_course', [AdminController::class, 'tz_course'])->name('admin.tz_course');
+
+Route::get('/tz_edit/{id}', [AdminDashboardController::class, 'tz_edit'])->name('admin.tz_edit');
+
+Route::POST('/tz_update', [AdminDashboardController::class, 'tz_update'])->name('admin.tz_update');
 
 });

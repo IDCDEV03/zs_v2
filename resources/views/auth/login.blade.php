@@ -25,16 +25,21 @@
 
                             <div class="card">
                                 <div class="card-body">
-                                 สมัครสมาชิกเพื่อรับสิทธิประโยชน์มากยิ่งขึ้น
-
+                                 
                                  <div class=" alert alert-info " role="alert">
+                                    <div class="alert-content">      
+                                       <h4 class="text-info fw-400">สมัครสมาชิกเพื่อรับสิทธิประโยชน์มากยิ่งขึ้น</h4> 
+  
+                                     <a href="{{route('consent')}}" class="btn btn-info btn-sm">คลิกที่นี่เพื่อสมัครสมาชิก</a> 
+                                    </div>
+                                 </div>
+<br>
+                                 <div class=" alert alert-success " role="alert">
                                     <div class="alert-content">        
-                                       <p><a href="{{route('consent')}}">คลิกที่นี่</a> เพื่อสมัครสมาชิก</p>
+                                     <a href="{{route('signin_show')}}" class="btn btn-success btn-sm">เป็นสมาชิกแล้วเข้าสู่ระบบที่นี่</a> 
                                     </div>
                                  </div>
 
-                                 <p>หากเป็นสมัครสมาชิกแล้ว 
-                                    <a href="{{route('signin_show')}}"> คลิกที่นี่ </a>เพื่อเข้าสู่ระบบ</p>
                                 </div>
                               </div>
 

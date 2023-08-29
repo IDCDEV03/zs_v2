@@ -64,6 +64,12 @@ class UserController extends Controller
         return view('home.complete');
     }
 
+    public function zone_success()
+    {
+        return view('home.zs_list');
+    }
+    
+
     public function tz_list()
     {
         $tz_list = DB::table('tz_groups')

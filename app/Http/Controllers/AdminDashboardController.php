@@ -102,4 +102,66 @@ class AdminDashboardController extends Controller
         return view('admin.drone_list',compact('drone_list'));
     }
 
+    public function del_branch($id)
+    {
+        $del_branch = DB::table('driving_license_types')
+        ->where('id','=',$id)
+        ->delete();
+        return redirect()->route('admin.dl_course')->with('success', "บันทึกการแก้ไขเรียบร้อยแล้ว");
+    }
+
+    public function add_branch(Request $request)
+    {
+      $type = $request->dl_type;
+      if ($type == 'T1'){
+           $dl_name = 'รถจักรยานยนต์';
+        }
+       elseif($type == 'T2'){
+            $dl_name = 'รถยนต์ไม่มีพื้นฐาน';
+       }
+       elseif($type == 'T3'){
+             $dl_name = 'รถยนต์มีพื้นฐาน';
+       }
+       elseif($type == 'T4'){
+             $dl_name = 'รถบรรทุก ท.2';
+       }
+        DB::table('driving_license_types')
+        ->insert([
+            'dl_type' => $request->dl_type,
+            'dl_name' => $dl_name,
+            'dl_branch' => $request->dl_branch,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        return redirect()->route('admin.dl_course')->with('success', "บันทึกการแก้ไขเรียบร้อยแล้ว");
+    }
+
+    /** TZ Function */
+
+    public function tz_edit($id)
+    {
+        $tz_edit = DB::table('tz_courses')
+        ->where('tz_id','=',$id)
+        ->get();
+        return view('admin.tz_course_edit', ['id' => $id],compact('tz_edit'));
+    }
+
+    public function tz_update(Request $request)
+    {
+        $tz_id = $request->tz_id;
+        DB::table('tz_courses')
+        ->where('tz_id','=',$tz_id)
+        ->update([
+            'tz_name' => $request->tz_name,
+            'tz_fullname' => $request->tz_fullname,            
+            'tz_theory' => $request->tz_theory,
+            'tz_practical' => $request->tz_practical,
+            'tz_price' => $request->tz_price,
+            'tz_status' => $request->tz_status,
+            'tz_other' => $request->tz_other,
+            'updated_at' => Carbon::now()
+        ]);
+        return redirect()->route('admin.tz_course')->with('success', "บันทึกการแก้ไขเรียบร้อยแล้ว");
+    }
+
 }

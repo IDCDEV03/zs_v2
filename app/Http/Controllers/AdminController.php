@@ -38,5 +38,13 @@ class AdminController extends Controller
         return view('admin.member_dashboard');
     }
 
+    public function tz_course()
+    {
+        $tz_course = DB::table('tz_courses')
+        ->orderBy('id', 'ASC')
+        ->get();
+        return view('admin.tz_course', compact('tz_course'));
+    }
+
 
 }

@@ -67,7 +67,11 @@
                         <div class="bd-example">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-sm"><img class="img-fluid" src="{{asset('theme/img/banner_zs.png')}}" alt="img"></div>
+                                    <div class="col-sm">
+                                        <a href="{{route('home.zs_list')}}">
+                                        <img class="img-fluid" src="{{asset('theme/img/banner_zs.png')}}" alt="img">
+                                        </a>
+                                    </div>
                                     <div class="col-sm">
 
                                     <a href="{{route('home.products')}}">

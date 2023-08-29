@@ -16,6 +16,24 @@ use Illuminate\Support\Facades\Session;
 class UserDashboardController extends Controller
 {
 
+    public function LineAlert($msg)
+    {
+  
+      $sToken = "kgt4Dwhi2UT6SaHuJMUfYsw1wa32Z9UagwppAaEgThT";
+      $sMessage = $msg; 
+      
+      $chOne = curl_init(); 
+      curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
+      curl_setopt( $chOne, CURLOPT_SSL_VERIFYHOST, 0); 
+      curl_setopt( $chOne, CURLOPT_SSL_VERIFYPEER, 0); 
+      curl_setopt( $chOne, CURLOPT_POST, 1); 
+      curl_setopt( $chOne, CURLOPT_POSTFIELDS, "message=".$sMessage); 
+      $headers = array( 'Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer '.$sToken.'', );
+      curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers); 
+      curl_setopt( $chOne, CURLOPT_RETURNTRANSFER, 1); 
+      $result = curl_exec( $chOne ); 
+    }
+
     public function products_driver()
     {
         $branch = DB::table('idd_branches')
@@ -75,8 +93,7 @@ class UserDashboardController extends Controller
 
 
     public function drone_sub(Request $request)
-    {
-  
+    {  
         DB::table('user_sub_drones')->insert([
             'user_id' => $request->member_id,
             'drone_id' => $request->drone_id,
@@ -86,6 +103,10 @@ class UserDashboardController extends Controller
             'user_chk' => $request->user_chk,
             'created_at' => Carbon::now()
         ]);
+
+         //Line_Alert
+        $msg_alrert = "มีการลงทะเบียนความสนใจหลักสูตรโดรน";
+        $this->LineAlert($msg_alrert);
 
         return redirect()->route('home.drone')->with('success', "บันทึกความสนใจของท่านเรียบร้อยแล้ว");
     }
@@ -102,6 +123,10 @@ class UserDashboardController extends Controller
             'user_chk' => $request->user_chk,
             'created_at' => Carbon::now()
         ]);
+
+        $msg_alrert = "มีการลงทะเบียนความสนใจเรียนขับรถ";
+        $this->LineAlert($msg_alrert);
+
         return redirect()->route('home.sub_status')->with('success', "บันทึกความสนใจของท่านเรียบร้อยแล้ว");
     }
 
