@@ -52,7 +52,38 @@ class AdminController extends Controller
         $user_sub_drone = DB::table('user_sub_drones')
         ->get();
 
-        return view('admin.dashboard', compact('user_sub_driv','user_sub_drone'));
+        $user_sub_tzs = DB::table('user_sub_tzs')
+        ->join('tz_courses','user_sub_tzs.tz_id','=','tz_courses.tz_id')
+        ->join('user_registers','user_sub_tzs.user_id','=','user_registers.member_id')
+        ->get();
+
+        $sub_tz_count = DB::table('user_sub_tzs')
+        ->where('tz_sub_status','=','0')->get();
+        $tz_count = $sub_tz_count->count();
+
+        $sub_drives_count = DB::table('user_sub_drivings')
+        ->where('sub_status','=','0')->get();
+        $drives_count = $sub_drives_count->count();
+
+        $sub_drone_count = DB::table('user_sub_drones')
+        ->where('sub_status','=','0')->get();
+        $drone_count = $sub_drone_count->count();
+
+        return view('admin.dashboard', compact('user_sub_driv','user_sub_drone','user_sub_tzs','tz_count','drives_count','drone_count'));
+    }
+
+    public function admin_update_status_driving(Request $request)
+    {
+        $id = $request->id;
+        DB::table('user_sub_drivings')
+        ->where('user_id','=',$id)
+        ->update([
+            'sub_status' => $request->status_update,
+            'admin_remark' => $request->admin_remark,
+            'updated_at' => Carbon::now()
+        ]);
+
+        return redirect()->route('admin.dashboard')->with('success', "บันทึกข้อมูลเรียบร้อยแล้ว");
     }
 
 

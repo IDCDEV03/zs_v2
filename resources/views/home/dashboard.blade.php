@@ -79,7 +79,6 @@
                                     </a>
 
                                     </div>
-                                    <div class="col-sm"><img class="img-fluid" src="{{asset('theme/img/banner_news.png')}}" alt="img"></div>
                                 </div>
                             </div>
                         </div>

@@ -138,5 +138,24 @@ class UserDashboardController extends Controller
         return view('home.tz_detail',['id' => $id],compact('tz_detail'));
     }
 
+    public function tz_sub(Request $request)
+    {  
+        DB::table('user_sub_tzs')->insert([
+            'user_id' => $request->member_id,
+            'tz_id' => $request->tz_id,
+            'tz_group' => $request->tz_group,
+            'tz_sub_status' => '0',
+            'user_phone' => $request->user_phone,
+            'user_timing' => $request->user_timing,
+            'user_chk' => $request->user_chk,
+            'created_at' => Carbon::now()
+        ]);
+
+        $msg_alrert = "มีการลงทะเบียนความสนใจหลักสูตร TZ";
+        $this->LineAlert($msg_alrert);
+
+        return redirect()->route('home.sub_status')->with('success', "บันทึกความสนใจของท่านเรียบร้อยแล้ว");
+    }
+
   
 }

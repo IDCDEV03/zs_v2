@@ -101,10 +101,11 @@
                     <hr>  
                     <p class="fw-500">หลักสูตรที่สนใจ</p>
                     <p class="text-info">{{$item->tz_name}} ({{$item->tz_fullname}})</p>
-                    @endforeach
-                 <form action="#" method="POST">
+                  
+                 <form action="{{route('home.tz_sub')}}" method="POST">
                     @csrf
-                <input type="hidden" name="drone_id" value="#">
+                <input type="hidden" name="tz_id" value="{{$item->tz_id}}">
+                <input type="hidden" name="tz_group" value="{{$item->tz_group}}">
                 <input type="hidden" name="member_id" value="{{Auth::user()->member_id}}">
                     <div class="mb-3">
                         <label for="car2" class="form-label">สนใจสมัครหลักสูตร</label>
@@ -125,7 +126,7 @@
                       <button type="submit" class="btn btn-success">บันทึก</button>
                  </form>
                      
-           
+                 @endforeach
                     </div>
                 </div>
             </div>

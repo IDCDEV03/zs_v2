@@ -106,6 +106,8 @@ Route::get('/tz_group/{id}', $controller_path . '\UserController@tz_group')->nam
 
 Route::get('/tz_detail/{id}', $controller_path . '\UserDashboardController@tz_detail')->name('home.tz_detail');
 
+Route::POST('/tz_sub', $controller_path . '\UserDashboardController@tz_sub')->name('home.tz_sub');
+
 /** Zone Success */
 Route::get('/zs', [UserController::class, 'zone_success'])->name('home.zs_list');
 
@@ -119,6 +121,8 @@ Route::group(['middleware' => 'isAdmin'], function () {
 Route::get('/back', [AdminController::class, 'admin_index'])->name('admin.dashboard');
 Route::get('/users', [AdminController::class, 'admin_listuser'])->name('admin.listuser');
 Route::get('/member/{id}', [AdminController::class, 'member_detail'])->name('admin.memberdetail');
+
+Route::POST('/status_update', [AdminController::class, 'admin_update_status_driving'])->name('admin.status_update');
 
 Route::get('/member_dashboard', [AdminController::class, 'member_dashboard'])->name('admin.member_dashboard');
 
