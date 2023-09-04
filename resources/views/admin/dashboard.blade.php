@@ -290,9 +290,99 @@
                 @endif
             </td>
             <td>
-                <button class="btn btn-default btn-rounded color-primary btn-outline-primary " data-bs-toggle="modal" data-bs-target="#modal-basic">
-                <i class="fa fa-cog" aria-hidden="true"></i>
-                </button>
+                <button class="btn btn-icon btn-circle color-primary btn-outline-primary" data-bs-toggle= 1"modal" data-bs-target="#modal-basic-{{$row->user_id}}">
+                    <img src="{{asset('theme/img/svg/edit.svg')}}" alt="layers" class="svg">
+                    </button>
+
+                    <div class="modal-basic modal fade show" id="modal-basic-{{$row->user_id}}" tabindex="-1" role="dialog" aria-hidden="true">
+
+                        <div class="modal-dialog modal-md" role="document">
+                           <div class="modal-content modal-bg-white ">
+                              <div class="modal-header">
+                      
+                                 <h6 class="modal-title">ลูกค้าที่สนใจสมัครหลักสูตร</h6>
+                                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <img src="{{asset('theme/img/svg/x.svg')}}" alt="x" class="svg">
+                                 </button>
+                              </div>
+                              <div class="modal-body">
+                                
+                                <form action="#" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$row->user_id}}">
+
+                                <div class="mb-3 row">
+                                    <label class="col-sm-4 col-form-label">ชื่อลูกค้า</label>
+                                    <div class="col-sm-8">
+                                      <input type="text" readonly class="form-control-plaintext" 
+                                      value="{{$row->member_name}}">
+                                    </div>
+                                  </div>
+
+                                <div class="mb-3 row">
+                                    <label class="col-sm-4 col-form-label">เบอร์โทรศัพท์</label>
+                                    <div class="col-sm-8">
+                                      <input type="text" readonly class="form-control-plaintext" 
+                                      value="{{$row->user_phone}}">
+                                    </div>
+                                  </div>
+
+                                  
+                                <div class="mb-3 row">
+                                    <label class="col-sm-4 col-form-label">ช่วงเวลาที่สะดวกให้ติดต่อ</label>
+                                    <div class="col-sm-8">
+                                      <input type="text" readonly class="form-control-plaintext" 
+                                      value="{{$row->user_timing}}">
+                                    </div>
+                                  </div>
+
+                                  <div class="mb-3 row">
+                                    <label class="col-sm-4 col-form-label">หลักสูตรที่สนใจ</label>
+                                    <div class="col-sm-8">
+                                      <span>  {{$row->tz_name}} <br>
+                                     ({{$row->tz_fullname}}) </span>
+                                    </div>
+                                  </div>
+
+                                  <div class="mb-3 row">
+                                    <label class="col-sm-4 col-form-label text-primary">อัพเดทสถานะ</label>
+                                    <div class="col-sm-8">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status_update" value="1" id="flexRadioDefault1">
+                                        <label class="form-check-label text-success" for="flexRadioDefault1">
+                                          ติดต่อเข้ารับบริการแล้ว
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status_update" value="2" id="flexRadioDefault2">
+                                        <label class="form-check-label text-danger" for="flexRadioDefault2">
+                                          ยกเลิกการรับบริการ
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="mb-3 row">
+                                    <label class="col-sm-4 col-form-label">*หมายเหตุ</label>
+                                    <div class="col-sm-8">
+                                      <input type="text" name="admin_remark" class="form-control">
+                                    </div>
+                                  </div>
+
+                                
+
+                              </div>
+                              <div class="modal-footer">
+                                 <button type="submit" class="btn btn-primary btn-sm">บันทึก</button>
+                                 <button type="button" class="btn btn-dark btn-sm" data-bs-dismiss="modal">ยกเลิก</button>
+                              </div>
+                            </form>
+                           </div>
+                        </div>
+            
+            
+                     </div>
+                     <!-- ends: .modal-Basic -->
            
             </td>
             </tbody>
