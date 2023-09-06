@@ -94,14 +94,16 @@ class UserDashboardController extends Controller
 
     public function drone_sub(Request $request)
     {  
+        $req_id = Str::random(9);
         DB::table('user_sub_drones')->insert([
+            'req_id' => $req_id,
             'user_id' => $request->member_id,
             'drone_id' => $request->drone_id,
             'sub_status' => '0',
             'user_phone' => $request->user_phone,
             'user_timing' => $request->user_timing,
             'user_chk' => $request->user_chk,
-            'created_at' => Carbon::now()
+            'drone_created_at' => Carbon::now()
         ]);
 
          //Line_Alert
@@ -113,7 +115,9 @@ class UserDashboardController extends Controller
 
     public function driving_sub(Request $request)
     {  
+        $req_id = Str::random(9);
         DB::table('user_sub_drivings')->insert([
+            'req_id' => $req_id,
             'user_id' => $request->member_id,
             'branch_id' => $request->dl_branch,
             'dl_type' => $request->dl_type,
@@ -121,7 +125,7 @@ class UserDashboardController extends Controller
             'user_phone' => $request->user_phone,
             'user_timing' => $request->user_timing,
             'user_chk' => $request->user_chk,
-            'created_at' => Carbon::now()
+            'drv_created_at' => Carbon::now()
         ]);
 
         $msg_alrert = "มีการลงทะเบียนความสนใจเรียนขับรถ";
@@ -140,7 +144,9 @@ class UserDashboardController extends Controller
 
     public function tz_sub(Request $request)
     {  
+        $req_id = Str::random(9);
         DB::table('user_sub_tzs')->insert([
+            'req_id' => $req_id,
             'user_id' => $request->member_id,
             'tz_id' => $request->tz_id,
             'tz_group' => $request->tz_group,
@@ -148,7 +154,7 @@ class UserDashboardController extends Controller
             'user_phone' => $request->user_phone,
             'user_timing' => $request->user_timing,
             'user_chk' => $request->user_chk,
-            'created_at' => Carbon::now()
+            'tz_created_at' => Carbon::now()
         ]);
 
         $msg_alrert = "มีการลงทะเบียนความสนใจหลักสูตร TZ";

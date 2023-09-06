@@ -122,7 +122,7 @@
                 <td> {{$item->dl_course_name}} <br>
                     สาขา {{$item->branch_name}} <br> (จ.{{$item->branch_province}})
                 </td>
-                <td>  {{ Carbon\Carbon::parse($item->created_at)->format('d/m/Y H:i') }}</td>
+                <td>  {{ Carbon\Carbon::parse($item->drv_created_at)->format('d/m/Y H:i') }}</td>
                 <td>
                     @if ($item->sub_status == '0')
                 <span class="dm-tag tag-primary tag-transparented">รอเจ้าหน้าที่ติดต่อกลับ</span>
@@ -133,11 +133,13 @@
                     @endif
                 </td>
                 <td>  
-                     <button class="btn btn-icon btn-circle color-primary btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal-basic-{{$item->user_id}}">
+                  @if ($item->sub_status == '0')
+                     <button class="btn btn-icon btn-circle color-primary btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal-basic-{{$item->req_id}}">
                     <img src="{{asset('theme/img/svg/edit.svg')}}" alt="layers" class="svg">
                     </button>
+                    @endif
 
-                    <div class="modal-basic modal fade show" id="modal-basic-{{$item->user_id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-basic modal fade show" id="modal-basic-{{$item->req_id}}" tabindex="-1" role="dialog" aria-hidden="true">
 
 
                         <div class="modal-dialog modal-md" role="document">
@@ -154,7 +156,7 @@
   <form action="{{route('admin.status_update')}}" method="POST">
                                     @csrf
 
-                                    <input type="hidden" name="id" value="{{$item->user_id}}">
+                                    <input type="hidden" name="id" value="{{$item->req_id}}">
 
                                 <div class="mb-3 row">
                                     <label class="col-sm-4 col-form-label">ชื่อลูกค้า</label>
@@ -279,7 +281,7 @@
             <td> {{$row->tz_name}} <br>
                 ({{$row->tz_fullname}}) <br> 
             </td>
-            <td>  {{ Carbon\Carbon::parse($row->created_at)->format('d/m/Y H:i') }}</td>
+            <td>  {{ Carbon\Carbon::parse($row->tz_created_at)->format('d/m/Y H:i') }}</td>
             <td>
                 @if ($row->tz_sub_status == '0')
             <span class="dm-tag tag-primary tag-transparented">รอเจ้าหน้าที่ติดต่อกลับ</span>
@@ -290,11 +292,12 @@
                 @endif
             </td>
             <td>
-                <button class="btn btn-icon btn-circle color-primary btn-outline-primary" data-bs-toggle= 1"modal" data-bs-target="#modal-basic-{{$row->user_id}}">
+              @if ($row->tz_sub_status == '0')
+                <button class="btn btn-icon btn-circle color-primary btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal-basic-{{$row->req_id}}">
                     <img src="{{asset('theme/img/svg/edit.svg')}}" alt="layers" class="svg">
                     </button>
-
-                    <div class="modal-basic modal fade show" id="modal-basic-{{$row->user_id}}" tabindex="-1" role="dialog" aria-hidden="true">
+              @endif
+                    <div class="modal-basic modal fade show" id="modal-basic-{{$row->req_id}}" tabindex="-1" role="dialog" aria-hidden="true">
 
                         <div class="modal-dialog modal-md" role="document">
                            <div class="modal-content modal-bg-white ">
@@ -307,9 +310,9 @@
                               </div>
                               <div class="modal-body">
                                 
-                                <form action="#" method="POST">
+                                <form action="{{route('admin.status_update_tz')}}" method="POST">
                                     @csrf
-                                    <input type="hidden" name="id" value="{{$row->user_id}}">
+                                    <input type="hidden" name="id" value="{{$row->req_id}}">
 
                                 <div class="mb-3 row">
                                     <label class="col-sm-4 col-form-label">ชื่อลูกค้า</label>
@@ -348,14 +351,14 @@
                                     <label class="col-sm-4 col-form-label text-primary">อัพเดทสถานะ</label>
                                     <div class="col-sm-8">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="status_update" value="1" id="flexRadioDefault1">
-                                        <label class="form-check-label text-success" for="flexRadioDefault1">
+                                        <input class="form-check-input" type="radio" name="status_update" value="1" id="tz1">
+                                        <label class="form-check-label text-success" for="tz1">
                                           ติดต่อเข้ารับบริการแล้ว
                                         </label>
                                       </div>
                                       <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="status_update" value="2" id="flexRadioDefault2">
-                                        <label class="form-check-label text-danger" for="flexRadioDefault2">
+                                        <input class="form-check-input" type="radio" name="status_update" value="2" id="tz2">
+                                        <label class="form-check-label text-danger" for="tz2">
                                           ยกเลิกการรับบริการ
                                         </label>
                                       </div>
@@ -368,10 +371,7 @@
                                       <input type="text" name="admin_remark" class="form-control">
                                     </div>
                                   </div>
-
-                                
-
-                              </div>
+                                                      </div>
                               <div class="modal-footer">
                                  <button type="submit" class="btn btn-primary btn-sm">บันทึก</button>
                                  <button type="button" class="btn btn-dark btn-sm" data-bs-dismiss="modal">ยกเลิก</button>
@@ -394,8 +394,156 @@
                                   </div>
  <!----------------------Tab3-------------------------->
                                   <div class="tab-pane fade" id="tab-v-3" role="tabpanel" aria-labelledby="tab-v-3-tab">
-                                     <h3>สมาชิกสนใจหลักสูตร Drone</h3>
-                                  </div>
+                                    <div class="table-responsive">  <h3>สมาชิกสนใจหลักสูตร Drone</h3>
+
+      <table class="table mb-0">
+      <thead>
+          <tr class="userDatatable-header">
+              <th>
+              <span class="userDatatable-title">#</span>
+              </th>
+              <th>ชื่อ</th>
+              <th>เบอร์โทร</th>
+              <th>
+              <span class="userDatatable-title">หลักสูตรที่สนใจ</span>
+              </th>
+              <th>
+              <span class="userDatatable-title">สมัครเมื่อ</span>
+              </th>
+              <th>
+                  <span class="userDatatable-title">สถานะ</span>
+              </th>
+              <th></th>                                     
+          </tr>
+      </thead>
+      @php
+      $i = '1';
+  @endphp
+  @foreach ($user_sub_drone as $row)   
+      <tbody>
+      
+      <td>
+              @php
+                  echo $i++;
+              @endphp 
+      </td>
+      <td>
+          {{$row->member_name}}
+      </td>
+      <td>{{$row->user_phone}}
+      <br>ช่วงเวลาที่สะดวกให้ติดต่อกลับ<br> {{$row->user_timing}}
+      </td>
+      <td> {{$row->drone_course}} 
+      </td>
+      <td>  {{ Carbon\Carbon::parse($row->drone_created_at)->format('d/m/Y H:i') }}</td>
+      <td>
+          @if ($row->sub_status == '0')
+      <span class="dm-tag tag-primary tag-transparented">รอเจ้าหน้าที่ติดต่อกลับ</span>
+          @elseif ($row->sub_status == '1')
+      <span class="dm-tag tag-success tag-transparented">ได้รับบริการเรียบร้อยแล้ว</span>
+          @elseif ($row->sub_status == '2')
+      <span class="dm-tag tag-danger tag-transparented">ยกเลิกการรับบริการ</span>
+          @endif
+      </td>
+      <td>
+        @if ($row->sub_status == '0')
+          <button class="btn btn-icon btn-circle color-primary btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal-basic-{{$row->req_id}}">
+              <img src="{{asset('theme/img/svg/edit.svg')}}" alt="layers" class="svg">
+              </button>
+        @endif
+              <div class="modal-basic modal fade show" id="modal-basic-{{$row->req_id}}" tabindex="-1" role="dialog" aria-hidden="true">
+
+                  <div class="modal-dialog modal-md" role="document">
+                      <div class="modal-content modal-bg-white ">
+                        <div class="modal-header">
+                
+                            <h6 class="modal-title">ลูกค้าที่สนใจสมัครหลักสูตร</h6>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                              <img src="{{asset('theme/img/svg/x.svg')}}" alt="x" class="svg">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                          
+                          <form action="#" method="POST">
+                              @csrf
+                              <input type="hidden" name="id" value="{{$row->req_id}}">
+
+                          <div class="mb-3 row">
+                              <label class="col-sm-4 col-form-label">ชื่อลูกค้า</label>
+                              <div class="col-sm-8">
+                                <input type="text" readonly class="form-control-plaintext" 
+                                value="{{$row->member_name}}">
+                              </div>
+                            </div>
+
+                          <div class="mb-3 row">
+                              <label class="col-sm-4 col-form-label">เบอร์โทรศัพท์</label>
+                              <div class="col-sm-8">
+                                <input type="text" readonly class="form-control-plaintext" 
+                                value="{{$row->user_phone}}">
+                              </div>
+                            </div>
+
+                            
+                          <div class="mb-3 row">
+                              <label class="col-sm-4 col-form-label">ช่วงเวลาที่สะดวกให้ติดต่อ</label>
+                              <div class="col-sm-8">
+                                <input type="text" readonly class="form-control-plaintext" 
+                                value="{{$row->user_timing}}">
+                              </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                              <label class="col-sm-4 col-form-label">หลักสูตรที่สนใจ</label>
+                              <div class="col-sm-8">
+                                <span>  {{$row->drone_course}}  </span>
+                              </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                              <label class="col-sm-4 col-form-label text-primary">อัพเดทสถานะ</label>
+                              <div class="col-sm-8">
+                              <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="status_update" value="1" id="tz1">
+                                  <label class="form-check-label text-success" for="tz1">
+                                    ติดต่อเข้ารับบริการแล้ว
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="status_update" value="2" id="tz2">
+                                  <label class="form-check-label text-danger" for="tz2">
+                                    ยกเลิกการรับบริการ
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                              <label class="col-sm-4 col-form-label">*หมายเหตุ</label>
+                              <div class="col-sm-8">
+                                <input type="text" name="admin_remark" class="form-control">
+                              </div>
+                            </div>
+                                                </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary btn-sm">บันทึก</button>
+                            <button type="button" class="btn btn-dark btn-sm" data-bs-dismiss="modal">ยกเลิก</button>
+                        </div>
+                      </form>
+                      </div>
+                  </div>
+      
+      
+                </div>
+                <!-- ends: .modal-Basic -->
+      
+      </td>
+      </tbody>
+      @endforeach      
+  </table>
+
+
+  </div>
 
                                </div>
                             </div>

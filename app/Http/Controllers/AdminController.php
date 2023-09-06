@@ -50,6 +50,8 @@ class AdminController extends Controller
         ->get();
 
         $user_sub_drone = DB::table('user_sub_drones')
+        ->join('idd_drones','user_sub_drones.drone_id','=','idd_drones.drone_id')
+        ->join('user_registers','user_sub_drones.user_id','=','user_registers.member_id')
         ->get();
 
         $user_sub_tzs = DB::table('user_sub_tzs')
@@ -76,7 +78,7 @@ class AdminController extends Controller
     {
         $id = $request->id;
         DB::table('user_sub_drivings')
-        ->where('user_id','=',$id)
+        ->where('req_id','=',$id)
         ->update([
             'sub_status' => $request->status_update,
             'admin_remark' => $request->admin_remark,
@@ -85,6 +87,21 @@ class AdminController extends Controller
 
         return redirect()->route('admin.dashboard')->with('success', "บันทึกข้อมูลเรียบร้อยแล้ว");
     }
+
+    public function admin_update_status_tz(Request $request)
+    {
+        $id = $request->id;
+        DB::table('user_sub_tzs')
+        ->where('req_id','=',$id)
+        ->update([
+            'tz_sub_status' => $request->status_update,
+            'admin_remark' => $request->admin_remark,
+            'updated_at' => Carbon::now()
+        ]);
+
+        return redirect()->route('admin.dashboard')->with('success', "บันทึกข้อมูลเรียบร้อยแล้ว");
+    }
+
 
 
 }

@@ -124,6 +124,8 @@ Route::get('/member/{id}', [AdminController::class, 'member_detail'])->name('adm
 
 Route::POST('/status_update', [AdminController::class, 'admin_update_status_driving'])->name('admin.status_update');
 
+Route::POST('/tz_status_update', [AdminController::class, 'admin_update_status_tz'])->name('admin.status_update_tz');
+
 Route::get('/member_dashboard', [AdminController::class, 'member_dashboard'])->name('admin.member_dashboard');
 
 Route::get('/branch_list', [AdminDashboardController::class, 'branch_list'])->name('admin.branch_list');
