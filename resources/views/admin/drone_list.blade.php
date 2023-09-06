@@ -34,6 +34,15 @@
 
             <div class="container-fluid p-3">
                 <div class="card card-horizontal card-default card-md mb-3 ">
+
+                    @if (session('success'))
+                    <div class="alert alert-success" role="alert">
+                        <div class="alert-content">
+                        <p>{{ session('success') }}</p>                     
+                        </div>
+                    </div>
+                @endif
+
                     <div class="card-header">
                         <h6>หลักสูตร Drone</h6>
                      </div>
@@ -58,7 +67,7 @@
                                 @endphp</th>
                                 <td>{{$item->drone_course}}</td>  
                                 <td>{{$item->drone_desc}} / ราคา {{number_format($item->drone_price)}} บาท</td>     
-                                <td>   <a href="#">
+                                <td>   <a href="{{route('admin.drone_edit',['id'=>$item->drone_id])}}">
                                     <i class="fa fa-cog" aria-hidden="true"></i>
                                     </a></td>        
                               </tr>    

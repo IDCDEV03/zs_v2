@@ -97,7 +97,28 @@
                     </ul>
                  
                     @endif
-
+                    
+                    <div class="dm-collapse mt-20">
+                      <div class="dm-collapse-item">
+                         <div class="dm-collapse-item__header">
+                            <a href="#" class="item-link" data-bs-toggle="collapse" data-bs-target="#collapse-body-1" aria-expanded="false">
+                               <i class="la la-angle-right"></i>
+                               <h4>ติดต่อสอบถามเพิ่มเติม</h4>
+                            </a>
+                         </div>
+                         <div id="collapse-body-1" class="collapse dm-collapse-item__body">
+                            <div class="collapse-body-text">
+                               <p>
+                                <ul>
+                                  <li><i class="fa fa-phone-square" aria-hidden="true"></i> : 093-408-3377 , 099-704-0811 </li>
+                                  <li><i class="fa fa-envelope" aria-hidden="true"></i> : <a href="mailto:contact@iddrives.co.th">contact@iddrives.co.th</a></li>
+                                </ul>
+                               </p>
+                            </div>
+                         </div>
+                      </div>
+                     </div>
+                     
                     <hr>  
                     <p class="fw-500">หลักสูตรที่สนใจ</p>
                     <p class="text-info">{{$item->tz_name}} ({{$item->tz_fullname}})</p>

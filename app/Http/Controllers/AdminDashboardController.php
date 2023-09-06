@@ -102,6 +102,30 @@ class AdminDashboardController extends Controller
         return view('admin.drone_list',compact('drone_list'));
     }
 
+    public function drone_edit($id)
+    {
+        $drone_edit = DB::table('idd_drones')
+        ->where('drone_id','=',$id)
+        ->get();
+        return view('admin.drone_edit', ['id' => $id],compact('drone_edit'));
+    }
+
+    public function drone_update(Request $request)
+    {
+        $drone_id = $request->drone_id;
+        DB::table('idd_drones')
+        ->where('drone_id','=',$drone_id)
+        ->update([
+            'drone_course' => $request->drone_course,
+            'drone_desc' => $request->drone_desc,
+            'drone_detail' => $request->drone_detail,
+            'drone_price' => $request->drone_price,
+            'drone_active' => $request->drone_active,
+            'updated_at' => Carbon::now()
+        ]);
+        return redirect()->route('admin.drone_list')->with('success', "บันทึกการแก้ไขเรียบร้อยแล้ว");
+    }
+
     public function del_branch($id)
     {
         $del_branch = DB::table('driving_license_types')

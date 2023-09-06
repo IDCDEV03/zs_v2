@@ -58,20 +58,39 @@
     </div>
  </div>
 
+ <div class="dm-collapse mt-20">
+    <div class="dm-collapse-item">
+       <div class="dm-collapse-item__header">
+          <a href="#" class="item-link" data-bs-toggle="collapse" data-bs-target="#collapse-body-1" aria-expanded="false">
+             <i class="la la-angle-right"></i>
+             <h4>ติดต่อสอบถามเพิ่มเติม</h4>
+          </a>
+       </div>
+       <div id="collapse-body-1" class="collapse dm-collapse-item__body">
+          <div class="collapse-body-text">
+             <p>
+              <ul>
+                <li><i class="fa fa-phone-square" aria-hidden="true"></i> : 093-408-3377 , 099-704-0811 </li>
+                <li><i class="fa fa-envelope" aria-hidden="true"></i> : <a href="mailto:contact@iddrives.co.th">contact@iddrives.co.th</a></li>
+              </ul>
+             </p>
+          </div>
+       </div>
+    </div>
+   </div>
+   <hr>
 <form action="{{route('home.drone_sub')}}" method="POST">
     @csrf
 <input type="hidden" name="drone_id" value="{{$row->drone_id}}">
 <input type="hidden" name="member_id" value="{{Auth::user()->member_id}}">
-    <div class="mb-3">
+    <div class="mb-3 mt-20">
         <label for="car2" class="form-label">สนใจสมัครหลักสูตร</label>
-        <input type="text" class="form-control" id="car2" placeholder="ระบุเบอร์โทรศัพท์" maxlength="10" name="user_phone" required>
-        
+        <input type="text" class="form-control" id="car2" placeholder="ระบุเบอร์โทรศัพท์" maxlength="10" name="user_phone" required>        
       </div>
       
       <div class="mb-3">
         <label for="car2" class="form-label">ช่วงเวลาที่สะดวกให้ติดต่อกลับ</label>
-        <input type="text" class="form-control" name="user_timing" required>
-       
+        <input type="text" class="form-control" name="user_timing" required>       
       </div>
 
       <div class="mb-3 form-check">

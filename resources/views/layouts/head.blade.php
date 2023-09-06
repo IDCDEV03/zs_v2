@@ -51,9 +51,7 @@
                <li>
                   <a href="{{route('home.sub_status')}}" class="">สถานะการสมัคร</a>
                </li>
-               <li>
-                  <a href="#" class="">ข่าวสาร/กิจกรรม</a>
-               </li>
+             
             </ul>
          </div>
        </div>
@@ -75,15 +73,12 @@
              <!-- ends: .nav-flag-select -->
              <li class="nav-author">
                 <div class="dropdown-custom">
-                   <a href="javascript:;" class="nav-item-toggle"><img src="{{ asset('theme/img/author-nav.jpg')}}" alt="" class="rounded-circle">
+                   <a href="javascript:;" class="nav-item-toggle">
                       <span class="nav-item__title">{{ Auth::user()->member_name }}<i class="las la-angle-down nav-item__arrow"></i></span>
                    </a>
                    <div class="dropdown-parent-wrapper">
                       <div class="dropdown-wrapper">
-                         <div class="nav-author__info">
-                            <div class="author-img">
-                               <img src="{{ asset('theme/img/author-nav.jpg')}}" alt="" class="rounded-circle">
-                            </div>
+                         <div class="nav-author__info">                          
                             <div>
                                <h6>{{ Auth::user()->member_name }}</h6>
                                <span>สมาชิก</span>
@@ -101,7 +96,7 @@
                              
                             </ul>
                             <a href="{{route('logout')}}" class="nav-author__signout">
-                               <i class="uil uil-sign-out-alt"></i> Sign Out</a>
+                               <i class="uil uil-sign-out-alt"></i>ออกจากระบบ</a>
                          </div>
                       </div>
                       <!-- ends: .dropdown-wrapper -->

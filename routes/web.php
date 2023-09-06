@@ -140,7 +140,15 @@ Route::get('/dl_edit/{id}', [AdminDashboardController::class, 'dl_course_edit'])
 
 Route::POST('/dl_course_update', [AdminDashboardController::class, 'dl_course_update'])->name('admin.dl_course_update');
 
+/**Drone Route */
+
 Route::get('/drones', [AdminDashboardController::class, 'drone_list'])->name('admin.drone_list');
+
+Route::get('/drone_edit/{id}', [AdminDashboardController::class, 'drone_edit'])->name('admin.drone_edit');
+
+Route::POST('/drone_update', [AdminDashboardController::class, 'drone_update'])->name('admin.drone_update');
+
+/** End Drone Route */
 
 Route::delete('/dl_del/{id}', [AdminDashboardController::class,'del_branch'])->name('admin.del_branch');
 

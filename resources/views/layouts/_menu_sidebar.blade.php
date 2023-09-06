@@ -33,7 +33,5 @@
     <li>
        <a href="{{route('home.sub_status')}}" class="">สถานะการสมัคร</a>
     </li>
-    <li>
-       <a href="#" class="">ข่าวสาร/กิจกรรม</a>
-    </li>
+   
  </ul>

@@ -38,10 +38,7 @@
                   <ul class="subMenu">
                      <li class="">
                         <a href="{{route('admin.tz_course')}}">แก้ไขข้อมูลหลักสูตร</a>
-                     </li>
-                     <li class="">
-                        <a href="#">***</a>
-                     </li>
+                     </li>                   
                   </ul>
                </li>
 
@@ -51,10 +48,7 @@
                   <ul class="subMenu">
                      <li class="">
                         <a href="{{route('admin.drone_list')}}">รายการโดรน</a>
-                     </li>
-                     <li class="">
-                        <a href="#">***</a>
-                     </li>
+                     </li>                    
                   </ul>
                </li>
 
@@ -64,17 +58,19 @@
                   <ul class="subMenu">
                      <li class="">
                         <a href="{{route('admin.listuser')}}">รายชื่อสมาชิก</a>
-                     </li>
+                     </li>                    
                      <li class="">
-                        <a href="{{route('admin.member_dashboard')}}">แก้ไขข้อความต้อนรับ</a>
-                     </li>
-                     <li class="">
-                        <a href="demo3.html">Demo 3</a>
+                        <a href="#">สรุปรายงาน</a>
                      </li>
                   </ul>
                </li>
-               <li>
+               <li class="has-subMenu">
                   <a href="#" class="">ตั้งค่า</a>
+                  <ul class="subMenu">
+                     <li class="">
+                        <a href="{{route('logout')}}">ออกจากระบบ</a>
+                     </li>   
+                  </ul>
                </li>
             </ul>
          </div>
